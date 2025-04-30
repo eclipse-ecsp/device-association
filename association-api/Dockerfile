@@ -1,4 +1,4 @@
-FROM azul/zulu-openjdk-alpine:17.0.10-jdk
+FROM tomcat:10.1.40-jdk17
 
 ARG ENVIRONMENT
 RUN echo ${ENVIRONMENT}
