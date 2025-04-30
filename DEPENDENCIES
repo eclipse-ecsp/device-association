@@ -128,7 +128,7 @@ maven/mavencentral/org.springframework.boot/spring-boot-starter-web/3.4.4, Apach
 maven/mavencentral/org.springframework.boot/spring-boot-starter/3.3.7, Apache-2.0, approved, #16895
 maven/mavencentral/org.springframework.boot/spring-boot/3.3.7, Apache-2.0, approved, #16883
 maven/mavencentral/org.springframework.security/spring-security-core/6.3.6, Apache-2.0, approved, #20892
-maven/mavencentral/org.springframework.security/spring-security-crypto/6.3.6, Apache-2.0, approved, clearlydefined
+maven/mavencentral/org.springframework.security/spring-security-crypto/6.3.6, Apache-2.0 AND ISC, approved, #20893
 maven/mavencentral/org.springframework.ws/spring-ws-core/4.0.11, Apache-2.0, approved, clearlydefined
 maven/mavencentral/org.springframework.ws/spring-xml/4.0.11, Apache-2.0, approved, clearlydefined
 maven/mavencentral/org.springframework/spring-aop/6.1.16, Apache-2.0, approved, #15221
