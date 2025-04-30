@@ -1,0 +1,17 @@
+/association-api/target/
+/association-common/target/
+/target/
+/sbom/
+/.idea
+
+*.iml
+
+# Package Files #
+!eclipse-dash/**/*.jar
+
+# Dash files
+**/maven.deps
+**/DEPENDENCIES
+
+# Target directory
+**/target/
