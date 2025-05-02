@@ -41,7 +41,7 @@ import java.util.List;
 @Repository
 @Slf4j
 public class DeviceActivationStateDao {
-    public static final long RECORD_ID = -1;
+    private static final long RECORD_ID = -1;
     private static final String CAN_DEVICE_BE_ACTIVATED =
         "select count(*)>0 from device_activation_state where serial_number=? and activation_ready = true";
     private static final String CAN_DEVICE_BE_ACTIVATED_BY_FD_ID =

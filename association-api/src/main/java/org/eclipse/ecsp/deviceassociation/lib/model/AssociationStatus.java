@@ -24,12 +24,36 @@ package org.eclipse.ecsp.deviceassociation.lib.model;
  * Represents the status of an association between a device and a vehicle.
  */
 public enum AssociationStatus {
-
+    /**
+     * Represents the state where the vehicle is successfully associated.
+     * The notification event name for this status is "VehicleAssociation".
+     */
     ASSOCIATED("VehicleAssociation"),
+
+    /**
+     * Represents the state where the association process has been initiated.
+     * The notification event name for this status is "ASSOCIATION_INITIATED".
+     */
     ASSOCIATION_INITIATED("ASSOCIATION_INITIATED"),
+
+    /**
+     * Represents the state where the vehicle is no longer associated.
+     * The notification event name for this status is "VehicleDisAssociation".
+     */
     DISASSOCIATED("VehicleDisAssociation"),
+
+    /**
+     * Represents the state where the association process has failed.
+     * The notification event name for this status is "ASSOCIATION_FAILED".
+     */
     ASSOCIATION_FAILED("ASSOCIATION_FAILED"),
+
+    /**
+     * Represents the state where the association is temporarily suspended.
+     * The notification event name for this status is "SUSPENDED".
+     */
     SUSPENDED("SUSPENDED");
+    
     private String notificationEventName;
 
     /**

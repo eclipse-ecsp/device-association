@@ -78,22 +78,29 @@ import static org.eclipse.ecsp.common.CommonConstants.SELECT_FROM_DEVICE_INFO_FA
 @Slf4j
 public class DeviceAssociationDao {
 
+    /**
+     * Constant representing the database field name for the user ID in the 
+     * device association table.
+     *
+     * <p>This field is used to reference the "user_id" column in the "da" (device 
+     * association) table within database queries.
+     */
     public static final String USER_ID_FIELD = "da.user_id";
     private static final String UNPREDICTABLE_USER_ID = "!@#?<$%>^&*";
-    public static final int INDEX_2 = 2;
-    public static final int INDEX_3 = 3;
-    public static final int INDEX_4 = 4;
-    public static final int INDEX_5 = 5;
-    public static final int INDEX_6 = 6;
-    public static final int INDEX_7 = 7;
-    public static final int INDEX_8 = 8;
-    public static final int INDEX_9 = 9;
-    public static final int INDEX_10 = 10;
-    public static final int INDEX_11 = 11;
-    public static final int INDEX_12 = 12;
-    public static final int INDEX_13 = 13;
-    public static final int INDEX_14 = 14;
-    public static final int RETURN_VALUE = -1;
+    private static final int INDEX_2 = 2;
+    private static final int INDEX_3 = 3;
+    private static final int INDEX_4 = 4;
+    private static final int INDEX_5 = 5;
+    private static final int INDEX_6 = 6;
+    private static final int INDEX_7 = 7;
+    private static final int INDEX_8 = 8;
+    private static final int INDEX_9 = 9;
+    private static final int INDEX_10 = 10;
+    private static final int INDEX_11 = 11;
+    private static final int INDEX_12 = 12;
+    private static final int INDEX_13 = 13;
+    private static final int INDEX_14 = 14;
+    private static final int RETURN_VALUE = -1;
     private static final String INSERT_QUERY_IN_DEVICE_ASSOCIATION =
             "insert into device_association(serial_number,user_id,harman_id,association_status,associated_on,";
     private static final String INSERT_DEVICE_ASSOCIATION = INSERT_QUERY_IN_DEVICE_ASSOCIATION

@@ -28,7 +28,16 @@ import java.util.Map;
  * Utility class for handling errors.
  */
 public final class ErrorUtils {
+    /**
+     * The maximum capacity value used in the application.
+     * This constant is set to 150 and can be used wherever a predefined capacity limit is required.
+     */
     public static final int CAPACITY = 150;
+    /**
+     * A constant key used to represent the error code in a map or context.
+     * This key is typically used to store or retrieve error codes associated
+     * with specific operations or exceptions.
+     */
     public static final String ERROR_CODE_KEY = "errorCode";
 
     /**

@@ -57,11 +57,11 @@ import static org.eclipse.ecsp.common.CommonConstants.RANDOM_NUMBER;
 @Slf4j
 public class DeviceDao {
 
-    public static final int INDEX_2 = 2;
-    public static final int INDEX_3 = 3;
-    public static final int INDEX_4 = 4;
-    public static final int INDEX_5 = 5;
-    public static final int RETURN_VALUE = -1;
+    private static final int INDEX_2 = 2;
+    private static final int INDEX_3 = 3;
+    private static final int INDEX_4 = 4;
+    private static final int INDEX_5 = 5;
+    private static final int RETURN_VALUE = -1;
     private static String deactivateDevice =
         "update \"Device\" set \"IsActive\"=false where \"HarmanID\" in (select \"HarmanID\" from \"HCPInfo\" where " 
             +            "\"SerialNumber\"=?)";

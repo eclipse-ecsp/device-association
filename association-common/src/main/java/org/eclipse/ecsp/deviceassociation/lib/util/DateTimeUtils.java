@@ -29,8 +29,8 @@ import java.util.Calendar;
  * The DateTimeUtils class provides utility methods for working with dates and times.
  */
 public class DateTimeUtils {
-    public static final int VALUE_1000 = 1000;
-    public static final int VALUE_60 = 60;
+    private static final int VALUE_1000 = 1000;
+    private static final int VALUE_60 = 60;
 
     /**
      * Private constructor to prevent instantiation of the DateTimeUtils class.

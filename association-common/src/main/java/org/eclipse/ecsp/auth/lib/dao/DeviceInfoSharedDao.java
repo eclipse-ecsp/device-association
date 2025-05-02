@@ -38,7 +38,7 @@ import java.util.List;
 @Repository
 @Slf4j
 public class DeviceInfoSharedDao {
-    public static final int RETURN_VALUE = -1;
+    private static final int RETURN_VALUE = -1;
 
     @Autowired
     private JdbcTemplate jdbcTemplate;

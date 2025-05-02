@@ -173,10 +173,17 @@ public class DeviceState {
     }
 
     /**
-     * Represents the state of a device.
+     * Represents the possible states of a device.
      */
     public enum State {
+        /**
+         * Indicates that the device is activated and operational.
+         */
         ACTIVATED,
+
+        /**
+         * Indicates that the device is deactivated and not operational.
+         */
         DEACTIVATED;
     }
 }
