@@ -46,6 +46,12 @@ import static lombok.AccessLevel.PRIVATE;
 @ToString
 @FieldDefaults(level = PRIVATE)
 public class WhiteListedModels implements Serializable {
+    /**
+     * A list of white-listed models.
+     *
+     * <p>This list contains instances of {@link WhiteListedModel} that represent
+     * models which are approved or allowed for specific operations or associations.
+     */
     List<WhiteListedModel> whiteListedModels;
 
     /**

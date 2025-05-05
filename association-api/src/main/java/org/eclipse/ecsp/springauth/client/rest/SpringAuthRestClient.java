@@ -46,25 +46,78 @@ import java.util.Map;
 public class SpringAuthRestClient {
 
     /**
-     * Auth Header Key Constant.
+     * The key for the Authorization header.
      */
     public static final String AUTH_HEADER_KEY = "Authorization";
+
     /**
-     * CONTENT TYPE constant.
+     * The key for the Content-Type header.
      */
     public static final String CONTENT_TYPE = "Content-Type";
+
+    /**
+     * The value for the Content-Type header indicating JSON format.
+     */
     public static final String APPLICATION_JSON = "application/json";
+
+    /**
+     * The prefix for the Bearer token in the Authorization header.
+     */
     public static final String BEARER_KEY = "Bearer ";
+
+    /**
+     * The key for the client ID in the payload.
+     */
     public static final String CLIENT_ID = "clientId";
+
+    /**
+     * The key for the client secret in the payload.
+     */
     public static final String CLIENT_SECRET = "clientSecret";
+
+    /**
+     * The key for the client name in the payload.
+     */
     public static final String CLIENT_NAME = "clientName";
+
+    /**
+     * The grant type for client credentials.
+     */
     public static final String CLIENT_CREDENTIALS = "client_credentials";
+
+    /**
+     * The grant type for authorization code.
+     */
     public static final String AUTHORIZATION_CODE = "authorization_code";
+
+    /**
+     * The key for authorization grant types in the payload.
+     */
     public static final String AUTHORIZATION_GRANT_TYPES = "authorizationGrantTypes";
+
+    /**
+     * The key for redirect URIs in the payload.
+     */
     public static final String REDIRECT_URIS = "redirectUris";
+
+    /**
+     * The default redirect URL for the client.
+     */
     public static final String REDIRECT_URL = "http://localhost:9000/login";
+
+    /**
+     * The key for scopes in the payload.
+     */
     public static final String SCOPES = "scopes";
+
+    /**
+     * The key for the status in the payload.
+     */
     public static final String STATUS = "status";
+
+    /**
+     * The exception message suffix indicating an unsuccessful operation.
+     */
     public static final String EXCEPTION_MESSAGE = " was not successful";
 
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();

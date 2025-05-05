@@ -69,6 +69,10 @@ public class VinAssociationService {
     private static final String COUNTRY = "country";
     private static final String CARRIAGE_AND_NEWLINE_REGEX = "[\r\n]";
 
+    /**
+     * The configuration resource for device association properties.
+     * This is injected using the @Resource annotation with the name "envConfig".
+     */
     @Resource(name = "envConfig")
     protected EnvConfig<DeviceAssocationProperty> config;
     @Autowired

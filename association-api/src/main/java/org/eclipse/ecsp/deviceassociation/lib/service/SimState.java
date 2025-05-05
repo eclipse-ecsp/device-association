@@ -24,7 +24,13 @@ package org.eclipse.ecsp.deviceassociation.lib.service;
  * Represents the state of a SIM card.
  */
 public enum SimState {
+    /**
+     * The SIM card is in an active state.
+     */
     ACTIVE("ACTIVE"),
+    /**
+     * The SIM card is in an SUSPEND state.
+     */
     SUSPEND("SUSPEND");
 
     private String simState;

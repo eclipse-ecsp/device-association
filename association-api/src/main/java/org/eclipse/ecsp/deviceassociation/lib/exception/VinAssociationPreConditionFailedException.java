@@ -26,9 +26,13 @@ package org.eclipse.ecsp.deviceassociation.lib.exception;
 public class VinAssociationPreConditionFailedException extends Exception {
 
     private static final long serialVersionUID = 1L;
-
+   
     /**
-     * Exception thrown when a precondition for VIN association fails.
+     * Exception thrown when a precondition for VIN association is not met.
+     * This exception is typically used to indicate that a specific condition
+     * required for processing a VIN association has failed.
+     *
+     * @param message A detailed message describing the reason for the failure.
      */
     public VinAssociationPreConditionFailedException(String message) {
         super(message);

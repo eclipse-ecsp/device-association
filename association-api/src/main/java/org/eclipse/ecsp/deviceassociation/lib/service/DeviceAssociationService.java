@@ -257,7 +257,6 @@ public class DeviceAssociationService extends AbstractDeviceAssociationService {
      *   <li>Performs the association update and reactivates devices as needed.</li>
      *   <li>Updates old associations with dummy values.</li>
      * </ul>
-     * </p>
      *
      * @param userId The ID of the user whose devices are to be wiped.
      * @param serialNumbers A list of serial numbers of the devices to be wiped.

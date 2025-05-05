@@ -24,8 +24,13 @@ package org.eclipse.ecsp.deviceassociation.lib.model;
  * Represents the MQTT command for device association.
  */
 public enum MqttCommand {
-
+    /**
+     * PUT.
+     */
     PUT("put"),
+    /**
+     * DELETE.
+     */
     DELETE("delete");
 
     private String value;

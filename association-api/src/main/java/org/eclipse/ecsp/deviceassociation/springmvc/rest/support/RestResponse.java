@@ -208,11 +208,12 @@ public class RestResponse {
     }
 
     /**
-     * Creates a response with HTTP status code 404 (Not Found) and an ErrorResponseRest body.
+     * Creates a ResponseEntity representing a "Not Found" (404) error response.
      *
-     * @param status    the HTTP status of the response
-     * @param message the error message
-     * @return a ResponseEntity with HTTP status code 404 and an ErrorResponseRest body containing the error message
+     * @param <T>     The type of the response body.
+     * @param status  The HTTP status to be returned, typically HttpStatus.NOT_FOUND.
+     * @param message The error message to include in the response body.
+     * @return A ResponseEntity containing the specified HTTP status and error message.
      */
     public static <T> ResponseEntity<T> notFound(HttpStatus status, String message) {
         return (ResponseEntity<T>) createErrorResponse(status, message, null);

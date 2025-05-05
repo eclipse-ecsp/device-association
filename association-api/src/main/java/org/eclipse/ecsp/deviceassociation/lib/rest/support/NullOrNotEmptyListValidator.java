@@ -49,6 +49,15 @@ import java.util.List;
  */
 public class NullOrNotEmptyListValidator implements ConstraintValidator<NullOrNotEmptyList, List<String>> {
 
+    /**
+     * Initializes the validator with the specified parameters.
+     * This method is typically used to perform any setup or configuration
+     * required before the validation logic is executed.
+     *
+     * @param parameters the annotation instance containing the parameters
+     *                    for the validator. Can be used to access any
+     *                    attributes defined in the annotation.
+     */
     public void initialize(NullOrNotEmpty parameters) {
     }
 
