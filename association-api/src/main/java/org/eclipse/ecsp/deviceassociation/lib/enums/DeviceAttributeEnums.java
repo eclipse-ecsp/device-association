@@ -24,15 +24,55 @@ package org.eclipse.ecsp.deviceassociation.lib.enums;
  * This enum represents the different attributes of a device.
  */
 public enum DeviceAttributeEnums {
+    /**
+     * Represents the International Mobile Equipment Identity (IMEI) of the device.
+     * Associated parameter: "a.imei".
+     */
     IMEI("a.imei"),
+    /**
+     * Represents the serial number of the device.
+     * Associated parameter: "a.serial_number".
+     */
     SERIAL_NUMBER("a.serial_number"),
+    /**
+     * Represents the unique device ID (Harman ID).
+     * Associated parameter: "b.harman_id".
+     */
     DEVICE_ID("b.harman_id"),
+    /**
+     * Represents the user ID associated with the device.
+     * Associated parameter: "b.user_id".
+     */
     USER_ID("b.user_id"),
+    /**
+     * Represents the Service Set Identifier (SSID) of the device.
+     * Associated parameter: "a.ssid".
+     */
     SSID("a.ssid"),
+    /**
+     * Represents the Integrated Circuit Card Identifier (ICCID) of the device.
+     * Associated parameter: "a.iccid".
+     */
     ICCID("a.iccid"),
+    /**
+     * Represents the Mobile Station International Subscriber Directory Number (MSISDN).
+     * Associated parameter: "a.msisdn".
+     */
     MSISDN("a.msisdn"),
+    /**
+     * Represents the International Mobile Subscriber Identity (IMSI) of the device.
+     * Associated parameter: "a.imsi".
+     */
     IMSI("a.imsi"),
+    /**
+     * Represents the Basic Service Set Identifier (BSSID) of the device.
+     * Associated parameter: "a.bssid".
+     */
     BSSID("a.bssid"),
+    /**
+     * Represents the type of association for the device.
+     * Associated parameter: "b.association_type".
+     */
     ASSOCIATION_TYPE("b.association_type");
 
     private String param;

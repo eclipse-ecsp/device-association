@@ -72,6 +72,18 @@ public class HcpDeviceAssociationLibConfig {
         return new SpringAuthRestClient(envConfig.getStringValue(DeviceAssocationProperty.SPRING_AUTH_BASE_URL));
     }
 
+    /**
+     * Creates and configures a {@link MethodValidationPostProcessor} bean.
+     *
+     * <p>
+     * This bean enables method-level validation for beans annotated with
+     * validation constraints (e.g., {@code @Valid}, {@code @NotNull}, etc.).
+     * It ensures that validation rules are enforced on method parameters and
+     * return values.
+     * </p>
+     *
+     * @return a configured {@link MethodValidationPostProcessor} instance
+     */
     @Bean
     public MethodValidationPostProcessor methodValidationPostProcessor() {
         return new MethodValidationPostProcessor();

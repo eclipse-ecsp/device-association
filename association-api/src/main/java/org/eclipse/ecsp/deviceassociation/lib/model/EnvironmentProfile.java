@@ -25,6 +25,9 @@ package org.eclipse.ecsp.deviceassociation.lib.model;
  */
 public enum EnvironmentProfile {
 
+    /**
+     * Environment profile for AWS native.
+     */
     ENV_AWS_NATIVE
 
 }

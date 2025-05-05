@@ -48,6 +48,11 @@ public class DeviceAssosiationDetailsServiceV2 {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DeviceAssosiationDetailsServiceV2.class);
 
+    /**
+     * The Data Access Object (DAO) for managing device associations.
+     * This is used to interact with the database layer for performing
+     * CRUD operations related to device associations.
+     */
     @Autowired
     protected DeviceAssociationDao deviceAssociationDao;
 

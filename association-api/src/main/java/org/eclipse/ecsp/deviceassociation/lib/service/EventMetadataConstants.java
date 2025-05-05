@@ -24,6 +24,9 @@ package org.eclipse.ecsp.deviceassociation.lib.service;
  * The {@code EventMetadataConstants} class contains constants related to event metadata.
  */
 public class EventMetadataConstants {
+    /**
+     * Constant representing version 1.0.
+     */
     public static final String VERSION_1_0 = "1.0";
 
     /**

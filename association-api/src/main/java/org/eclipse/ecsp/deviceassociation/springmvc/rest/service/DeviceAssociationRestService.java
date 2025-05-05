@@ -96,7 +96,15 @@ import static org.springframework.http.HttpStatus.OK;
 @RestController
 public class DeviceAssociationRestService {
 
+    /**
+     * A constant representing a successful operation or response.
+     */
     public static final String SUCCESS = "Success";
+
+    /**
+     * Constant message indicating that the termination of a device was successful,
+     * but the deletion of the associated vehicle profile failed.
+     */
     public static final String VP_DELETE_FAILED = "Termination of device was success but failed to delete vehicle "
         + "profile";
     private static final Logger LOGGER = LoggerFactory.getLogger(DeviceAssociationRestService.class);
@@ -104,8 +112,20 @@ public class DeviceAssociationRestService {
     private static final String PROVISIONED = "PROVISIONED";
     private static final String CONNECTION_REFUSED = "Connection refused";
     private static final String GENERAL_ERROR = "Not successful. Something went wrong. Please contact admin";
+    /**
+     * A regular expression pattern that matches carriage return (`\r`) and newline (`\n`) characters.
+     * This can be used to identify or remove line breaks in strings.
+     */
     public static final String CARRIAGE_AND_NEWLINE_REGEX = "[\r\n]";
+    /**
+     * A constant representing the response code used in the Device Association REST service.
+     * This code is typically used to identify specific responses or errors in the service.
+     */
     public static final String RESPONSE_CODE = "HCP-001";
+    /**
+     * Error message indicating that the retrieval of device-based user association 
+     * history details has failed.
+     */
     public static final String USER_ASSOC_RETRIEVAL_FAILED =
             "Device based user association history details retrieval failed";
     private static final int SIZE = 20;
@@ -115,7 +135,11 @@ public class DeviceAssociationRestService {
     private static final int STATUS_CODE_500 = 500;
     private static final int CAPACITY = 100;
 
-    //Flag to replace Ivi device
+    /**
+     * Indicates whether the replacement of IVI (In-Vehicle Infotainment) devices is enabled.
+     * This value is configured through the application properties using the key 
+     * {@code replace_ivi_device_enabled}. If not explicitly set, it defaults to {@code false}.
+     */
     @Value("${replace_ivi_device_enabled:false}")
     public boolean replaceIviDeviceEnabled;
     @Autowired
