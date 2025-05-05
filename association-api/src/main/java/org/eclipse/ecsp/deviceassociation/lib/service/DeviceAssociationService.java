@@ -92,12 +92,27 @@ public class DeviceAssociationService extends AbstractDeviceAssociationService {
     @Value("${default_association_type:defaultOwner}")
     private String defaultAssociationType;
 
+    
     /**
-     * Associates a device with a user.
+     * Associates a device with a user based on the provided request.
      *
-     * @param associateDeviceRequest The request object containing the device and user information.
-     * @return The response object containing the ID of the device association and the association status.
-     * @throws Exception If an error occurs during the device association process.
+     * <p>This method checks if the device is already associated with the user. If
+     * the device is currently associated, a 
+     * {@link DuplicateDeviceAssociationRequestException} is thrown. Otherwise, it
+     * disassociates the device from any existing users and creates a new
+     * association for the device and user.
+     *
+     * @param associateDeviceRequest The request containing the device serial
+     *                                number and user ID for the association.
+     * @return An {@link AssociateDeviceResponse} containing the ID of the created
+     *         device association and the status of the association.
+     * @throws DuplicateDeviceAssociationRequestException If the device is already
+     *                                                    associated with the
+     *                                                    specified user.
+     * @throws ObserverMessageProcessFailureException     If there is a failure
+     *                                                    while processing observer
+     *                                                    messages during the
+     *                                                    association process.
      */
     public AssociateDeviceResponse associateDevice(AssociateDeviceRequest associateDeviceRequest)
         throws DuplicateDeviceAssociationRequestException, ObserverMessageProcessFailureException {

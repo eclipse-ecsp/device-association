@@ -45,7 +45,7 @@ import java.util.List;
  *
  * @author Akshay
  * @see NullOrNotEmptyList
- * @see javax.validation.ConstraintValidator
+ * @see jakarta.validation.ConstraintValidator
  */
 public class NullOrNotEmptyListValidator implements ConstraintValidator<NullOrNotEmptyList, List<String>> {
 

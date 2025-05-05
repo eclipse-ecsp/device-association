@@ -53,21 +53,82 @@ import static org.eclipse.ecsp.deviceassociation.lib.service.ApiMessageEnum.SWM_
  * @param <I> the type of the identifier used in the CRUD operations
  */
 public abstract class AbstractSwmCrudService<I> implements IswmCrudService<I> {
+    /**
+     * The constant ID represents the key for the vehicle ID in the response.
+     */
     public static final String ID = "id";
+    /**
+     * The constant REPRESENTATION_OBJECTS represents the key for the representation objects in the response.
+     */
     public static final String REPRESENTATION_OBJECTS = "representationObjects";
+
+    /**
+     * Logger instance for logging messages related to the AbstractSwmCrudService class.
+     * This logger is used to log information, warnings, and errors for debugging and
+     * monitoring purposes.
+     */
     protected static final Logger LOGGER = LoggerFactory.getLogger(AbstractSwmCrudService.class);
+    /**
+     * The URL for the SWM login API.
+     */
     protected String loginUrl;
+    /**
+     * The URL for creating a vehicle in the SWM system.
+     */
     protected String createVehicleUrl;
+    /**
+     * The URL for updating a vehicle in the SWM system.
+     */
     protected String updateVehicleUrl;
+    /**
+     * The URL for deleting a vehicle in the SWM system.
+     */
     protected String deleteVehicleUrl;
+    /**
+     * The URL for retrieving vehicle models from the SWM system.
+     */
     protected String vehicleModelsUrl;
+    /**
+     * The URL for retrieving vehicles from the SWM system.
+     */
     protected String vehiclesUrl;
+    
+    /**
+     * The username used for SWM (Software Management) operations.
+     * This field is protected to allow access within the class and its subclasses.
+     */
     protected String swmUserName;
+    /**
+     * The password used for SWM (Software Management) operations.
+     * This field is protected to allow access within the class and its subclasses.
+     */
     protected String swmPassword;
+    /**
+     * The domain associated with the SWM (Software Management) service.
+     * This field is used to specify the domain context for operations
+     * performed by the service.
+     */
     protected String swmDomain;
+    /**
+     * The identifier for the vehicle model associated with this service.
+     * This field is used to reference a specific vehicle model in the system.
+     */
     protected String vehicleModelId;
+    /**
+     * The environment configuration for device association properties.
+     * This is an autowired dependency that provides access to the configuration
+     * settings specific to device association.
+     *
+     * @see EnvConfig
+     * @see DeviceAssocationProperty
+     */
     @Autowired
     protected EnvConfig<DeviceAssocationProperty> envConfig;
+    /**
+     * The {@link RestTemplate} instance used for making RESTful web service calls.
+     * This is a Spring-managed bean that is automatically injected using the 
+     * {@code @Autowired} annotation.
+     */
     @Autowired
     protected RestTemplate restTemplate;
 

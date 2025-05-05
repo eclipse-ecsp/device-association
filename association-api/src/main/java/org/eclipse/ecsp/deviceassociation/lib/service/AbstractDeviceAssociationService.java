@@ -72,39 +72,109 @@ public abstract class AbstractDeviceAssociationService {
     private static final String CARRIAGE_AND_NEWLINE_REGEX = "[\r\n]";
     private static int count = -1;
 
+    /**
+     * The Data Access Object (DAO) for managing device associations.
+     * This is a protected field that allows subclasses to interact with
+     * the persistence layer for device association-related operations.
+     *
+     * <p>It is automatically injected by the Spring framework using the
+     * {@code @Autowired} annotation.
+     */
     @Autowired
     protected DeviceAssociationDao deviceAssociationDao;
 
+    /**
+     * The observable instance used to monitor and notify changes in device associations.
+     * This is an autowired dependency, which means it will be automatically injected
+     * by the Spring framework at runtime.
+     */
     @Autowired
     protected DeviceAssociationObservable observable;
 
+    /**
+     * The environment configuration for device association properties.
+     * This is an autowired dependency that provides access to configuration
+     * properties specific to device association.
+     *
+     * @see EnvConfig
+     * @see DeviceAssocationProperty
+     */
     @Autowired
     protected EnvConfig<DeviceAssocationProperty> envConfig;
 
+    /**
+     * The HcpRestClientLibrary instance used for making REST API calls.
+     * This is an autowired dependency, which means it will be automatically
+     * injected by the Spring framework at runtime.
+     */
     @Autowired
     protected HcpRestClientLibrary hcpRestClientLibrary;
 
+    /**
+     * The Data Access Object (DAO) for accessing and managing device information
+     * factory data. This is used to interact with the underlying database or
+     * persistence layer to perform CRUD operations related to device information.
+     *
+     * <p>This field is automatically injected by the Spring Framework using the
+     * {@code @Autowired} annotation.
+     */
     @Autowired
     protected DeviceInfoFactoryDataDao deviceInfoFactoryDataDao;
+
+
+    /**
+     * Data Access Object (DAO) for accessing HCP (Health Care Provider) information.
+     * This DAO is used to interact with the database for operations related to HCP data.
+     * It is automatically injected by the Spring framework using the @Autowired annotation.
+     */
     @Autowired
     protected HcpInfoDao hcpInfoDao;
+    /**
+     * The Data Access Object (DAO) for managing device activation states.
+     * This is an autowired dependency, which means it will be automatically
+     * injected by the Spring framework at runtime.
+     */
     @Autowired
     protected DeviceActivationStateDao deviceActivationStateDao;
+    /**
+     * The service for managing device associations with factory data.
+     * This is an autowired dependency, which means it will be automatically
+     * injected by the Spring framework at runtime.
+     */
     @Autowired
     protected DeviceAssociationWithFactDataServiceV2 deviceAssocFactoryService;
+    /**
+     * The service for managing device activations.
+     * This is an autowired dependency, which means it will be automatically
+     * injected by the Spring framework at runtime.
+     */
     @Autowired
     protected DeviceActivationService deviceActivationService;
+    /**
+     * The Data Access Object (DAO) for managing device information.
+     * This is an autowired dependency, which means it will be automatically
+     * injected by the Spring framework at runtime.
+     */
     @Autowired
     protected DeviceInfoSharedDao deviceInfoDao;
+    /**
+     * The Kafka device notification observer used for sending notifications to Kafka.
+     * This is an autowired dependency, which means it will be automatically
+     * injected by the Spring framework at runtime.
+     */
     @Autowired
     protected KafkaDeviceNotificationObserver kafkaDeviceNotifier;
 
+    
     /**
-     * Associates a device with the provided device association request.
+     * Associates a device with the given request details.
      *
-     * @param associateDeviceRequest The request object containing the necessary information for device association.
-     * @return The response object containing the result of the device association.
-     * @throws Exception If an error occurs during the device association process.
+     * @param associateDeviceRequest The request object containing details for the device association.
+     * @return An {@link AssociateDeviceResponse} containing the result of the association operation.
+     * @throws NoSuchEntityException If the entity specified in the request does not exist.
+     * @throws DuplicateDeviceAssociationRequestException If a duplicate association request is detected.
+     * @throws ObserverMessageProcessFailureException If there is a failure in processing observer messages
+     *      during the association.
      */
     public abstract AssociateDeviceResponse associateDevice(AssociateDeviceRequest associateDeviceRequest)
         throws NoSuchEntityException, DuplicateDeviceAssociationRequestException,
@@ -243,11 +313,12 @@ public abstract class AbstractDeviceAssociationService {
     }
 
     /**
-     * Handles the state change of a device.
+     * Handles the device state change event.
      *
      * @param deviceState The new state of the device.
      * @param userId The ID of the user associated with the device.
-     * @throws Exception If an error occurs while handling the device state change.
+     * @throws ObserverMessageProcessFailureException If an error occurs during the observer message processing.
+     * @throws NoSuchEntityException If the entity specified in the request does not exist.
      */
     public void deviceStateChanged(DeviceState deviceState, String userId)
             throws ObserverMessageProcessFailureException, NoSuchEntityException {

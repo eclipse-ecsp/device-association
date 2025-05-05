@@ -36,16 +36,16 @@ public interface IswmCrudService<I> {
     boolean createVehicle(I input);
 
     /**
-     * Updates an existing vehicle based on the provided input.
+     * Creates a new vehicle based on the provided input.
      *
-     * @param input the input for updating the vehicle
-     * @return true if the vehicle is updated successfully, false otherwise
-     * @throws Exception if an error occurs during the update process
+     * @param input the input for creating the vehicle
+     * @return true if the vehicle is created successfully, false otherwise
+     * @throws Exception if an error occurs during the creation process
      */
     boolean updateVehicle(I input);
 
     /**
-     * Deletes an existing vehicle based on the provided input.
+     * Deletes a vehicle based on the provided input.
      *
      * @param input the input for deleting the vehicle
      * @return true if the vehicle is deleted successfully, false otherwise

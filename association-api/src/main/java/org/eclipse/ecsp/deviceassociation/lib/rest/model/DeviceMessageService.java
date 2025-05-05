@@ -79,15 +79,18 @@ public class DeviceMessageService {
         baseVersion = envConfig.getStringValue(DeviceAssocationProperty.DEVICE_MQTT_MESSAGE_BASE_URL_VERSION);
     }
 
+    
     /**
-     * Publishes a message to a device.
+     * Publishes a message to the device message service.
      *
-     * @param domain    the domain of the message
-     * @param command   the command of the message
-     * @param data      the data of the message
-     * @param deviceId  the ID of the device
-     * @param version   the version of the message
-     * @throws Exception if an error occurs while publishing the message
+     * @param domain   The domain of the client configuration event, represented by {@link ClientConfigEventIds}.
+     * @param command  The command to be sent as part of the message.
+     * @param data     The data payload to be included in the message.
+     * @param deviceId The unique identifier of the target device.
+     * @param version  The version of the message or configuration.
+     * 
+     * @throws ApiTechnicalException If an error occurs during the publishing process or if the response 
+     *      status is not OK.
      */
     @SuppressWarnings("unchecked")
     public void publishMessage(ClientConfigEventIds domain, String command, Object data, String deviceId,

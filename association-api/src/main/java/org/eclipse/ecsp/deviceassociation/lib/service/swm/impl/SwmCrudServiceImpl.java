@@ -280,10 +280,37 @@ public class SwmCrudServiceImpl extends AbstractSwmCrudService<SwmRequest> {
         return deleteStatus;
     }
 
+    
     /**
-     * Populates the data required for the service.
-     *
-     * @throws Exception if an error occurs while populating the data.
+     * Initializes and populates configuration data required for the service.
+     * This method is annotated with {@code @PostConstruct} and is executed 
+     * after the bean's properties have been set by the container.
+     * 
+     * <p>It retrieves various configuration values from the environment 
+     * configuration and constructs URLs for login, vehicle creation, 
+     * update, deletion, and retrieval of vehicle models and vehicles.
+     * 
+     * <p>Logs the retrieved and constructed values for debugging purposes, 
+     * while masking sensitive information like passwords.
+     * 
+     * <p>Configuration properties used:
+     * <ul>
+     *   <li>{@code SWM_PASSWORD} - Password for SWM service.</li>
+     *   <li>{@code SWM_VEHICLE_MODEL_ID} - Vehicle model ID for SWM service.</li>
+     *   <li>{@code SWM_USERNAME} - Username for SWM service.</li>
+     *   <li>{@code SWM_DOMAIN} - Domain for SWM service.</li>
+     *   <li>{@code SWM_BASE_URL} - Base URL for SWM service.</li>
+     *   <li>{@code SWM_LOGIN_API_URL} - Login API endpoint.</li>
+     *   <li>{@code SWM_UPDATE_API} - Update API endpoint.</li>
+     *   <li>{@code SWM_DELETE_API} - Delete API endpoint.</li>
+     *   <li>{@code SWM_VEHICLE_MODELS_API} - Vehicle models API endpoint.</li>
+     *   <li>{@code SWM_VEHICLES_API} - Vehicles API endpoint.</li>
+     * </ul>
+     * 
+     * <p>Logs:
+     * <ul>
+     *   <li>Username, masked password, and constructed URLs for debugging.</li>
+     * </ul>
      */
     @PostConstruct
     public void populateData() {
