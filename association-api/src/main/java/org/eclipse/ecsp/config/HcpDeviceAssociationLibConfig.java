@@ -58,12 +58,14 @@ public class HcpDeviceAssociationLibConfig {
         return envConfigLoader.getServerConfig();
     }
 
+    
     /**
-     * Creates an instance of SpringAuthRestClient using the provided EnvConfig.
+     * Creates and configures a {@link SpringAuthRestClient} bean.
      *
-     * @param envConfig The environment configuration.
-     * @return The SpringAuthRestClient instance.
-     * @throws Exception If an error occurs while creating the SpringAuthRestClient.
+     * @param envConfig The environment configuration containing properties for the device association.
+     *                  Specifically, it provides the base URL for the Spring Authentication service
+     *                  through {@link DeviceAssocationProperty#SPRING_AUTH_BASE_URL}.
+     * @return A configured instance of {@link SpringAuthRestClient}.
      */
     @Bean
     public SpringAuthRestClient springAuthRestClient(EnvConfig<DeviceAssocationProperty> envConfig) {

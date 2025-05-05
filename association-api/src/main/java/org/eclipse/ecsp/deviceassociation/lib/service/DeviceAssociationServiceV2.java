@@ -43,12 +43,23 @@ import java.util.List;
 public class DeviceAssociationServiceV2 extends AbstractDeviceAssociationService {
     private static final Logger LOGGER = LoggerFactory.getLogger(DeviceAssociationServiceV2.class);
 
+    
     /**
-     * Associates a device with a user.
+     * Associates a device with a user based on the provided request.
+     * 
+     * <p>This method checks if the device is already associated with the user. 
+     * If it is, a {@link DuplicateDeviceAssociationRequestException} is thrown. 
+     * Otherwise, it disassociates the device from any existing users and creates 
+     * a new association for the device with the specified user.</p>
      *
-     * @param associateDeviceRequest The request object containing the device and user information.
-     * @return The response object indicating the result of the association.
-     * @throws Exception If an error occurs during the association process.
+     * @param associateDeviceRequest The request containing the details of the 
+     *                               device and user to be associated.
+     * @return An {@link AssociateDeviceResponse} containing the ID of the 
+     *         created association and the status of the association process.
+     * @throws DuplicateDeviceAssociationRequestException If the device is 
+     *         already associated with the specified user.
+     * @throws ObserverMessageProcessFailureException If there is a failure 
+     *         while processing observer messages during the association process.
      */
     public AssociateDeviceResponse associateDevice(AssociateDeviceRequest associateDeviceRequest)
             throws DuplicateDeviceAssociationRequestException, ObserverMessageProcessFailureException {

@@ -745,12 +745,18 @@ public class DeviceAssociationWithFactDataServiceV2 extends AbstractDeviceAssoci
         return deviceAssociationList;
     }
 
+    
     /**
-     * Suspends a device by updating its association status to suspended.
+     * Suspends a device based on the provided device status request.
      *
-     * @param deviceStatusRequest The request object containing the device status information.
-     * @return An instance of AssociateDeviceResponse representing the suspended device.
-     * @throws Exception If an error occurs during the suspension process.
+     * <p>This method validates the device association, updates its status to suspended,
+     * and attempts to deregister the device from Spring Auth. If any step fails, appropriate
+     * exceptions are thrown.</p>
+     *
+     * @param deviceStatusRequest the request containing the details of the device to be suspended
+     * @return an {@link AssociateDeviceResponse} containing the ID of the suspended device and its new status
+     * @throws ApiPreConditionFailedException if there is a database integrity error (e.g., more than one record found)
+     * @throws ApiTechnicalException if the update to suspended status fails or if deregistration from Spring Auth fails
      */
     public AssociateDeviceResponse suspendDevice(DeviceStatusRequest deviceStatusRequest) {
         LOGGER.info("Inside suspendDevice method");
@@ -834,12 +840,19 @@ public class DeviceAssociationWithFactDataServiceV2 extends AbstractDeviceAssoci
         }
     }
 
+    
     /**
-     * Replaces a device with new factory data.
+     * Replaces a device with a new one based on the provided request data.
      *
-     * @param replaceDeviceRequest The request object containing the replace device data.
-     * @param userId The ID of the user performing the device replacement.
-     * @throws Exception If an error occurs during the device replacement process.
+     * @param replaceDeviceRequest The request object containing details of the current device 
+     *                             and the replacement device.
+     * @param userId               The ID of the user performing the replacement operation.
+     * @throws ApiValidationFailedException If the request data is invalid or if the current 
+     *                                       factory data is invalid for replacement.
+     * @throws ApiPreConditionFailedException If the replacement device is not in the 
+     *                                         PROVISIONED state, if no active device is found 
+     *                                         for replacement, or if association data does not 
+     *                                         exist for the given input.
      */
     public void replaceDevice(ReplaceFactoryDataRequest replaceDeviceRequest, String userId) {
         if (isValidReplaceRequestData(replaceDeviceRequest)) {
@@ -970,11 +983,16 @@ public class DeviceAssociationWithFactDataServiceV2 extends AbstractDeviceAssoci
         return deviceInfoData;
     }
 
+    
     /**
-     * Performs a state change operation based on the provided state change request.
+     * Handles the state change request for a device association.
      *
-     * @param stateChangeRequest The state change request containing the necessary information for the operation.
-     * @throws Exception If an error occurs during the state change operation.
+     * @param stateChangeRequest The request object containing details about the state change,
+     *                           including the user ID and the desired state.
+     * @throws NoSuchEntityException If the entity associated with the request is not found or
+     *                               if an error occurs during processing.
+     * @throws JsonProcessingException If there is an error while processing JSON data.
+     *
      */
     public void stateChange(StateChangeRequest stateChangeRequest)
             throws NoSuchEntityException, JsonProcessingException {

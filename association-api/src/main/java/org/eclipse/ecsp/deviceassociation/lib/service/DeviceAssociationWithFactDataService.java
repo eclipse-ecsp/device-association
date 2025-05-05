@@ -180,12 +180,21 @@ public class DeviceAssociationWithFactDataService extends AbstractDeviceAssociat
     @Autowired
     private IswmCrudService<SwmRequest> swmService;
 
+    
     /**
-     * Associates a device with the provided device request.
+     * Associates a device based on the provided request data.
      *
-     * @param associateDeviceRequest The request object containing the device information.
-     * @return The response object containing the ID of the associated device and the association status.
-     * @throws Exception If an error occurs during the device association process.
+     * <p>This method validates the input request, ensuring that at least one of 
+     * BSSID, IMEI, or serial number is provided. It then performs the device 
+     * association process and returns a response indicating the status of the 
+     * association.</p>
+     *
+     * @param associateDeviceRequest The request object containing the details 
+     *                               required for device association.
+     * @return An {@link AssociateDeviceResponse} containing the ID of the 
+     *         associated device and the status of the association process.
+     * @throws NoSuchEntityException If none of BSSID, IMEI, or serial number 
+     *                               is provided in the request.
      */
     public AssociateDeviceResponse associateDevice(AssociateDeviceRequest associateDeviceRequest)
             throws NoSuchEntityException {
@@ -385,11 +394,18 @@ public class DeviceAssociationWithFactDataService extends AbstractDeviceAssociat
     }
 
     /**
-     * Terminates the association for a device based on the provided device status request.
+     * Terminates the association of a device based on the provided device status request.
      *
-     * @param deviceStatusRequest The device status request containing the necessary information.
-     * @return The number of associations terminated.
-     * @throws Exception If an error occurs during the termination process.
+     * <p>This method validates the device association against a list of valid statuses
+     * (ASSOCIATED, ASSOCIATION_INITIATED, SUSPENDED). If more than one association is found,
+     * it throws an {@link InvalidUserAssociation} exception to indicate a database integrity issue.
+     * Otherwise, it proceeds to terminate the association and returns the count of updated records.
+     *
+     * @param deviceStatusRequest The request containing the device status and user information.
+     * @return The number of records updated as a result of the termination.
+     * @throws NoSuchEntityException If no matching device association is found.
+     * @throws ObserverMessageProcessFailureException If an error occurs during message processing.
+     * @throws InvalidUserAssociation If multiple associations are found for the given request.
      */
     public int terminateAssociation(DeviceStatusRequest deviceStatusRequest)
             throws NoSuchEntityException, ObserverMessageProcessFailureException {
@@ -439,12 +455,22 @@ public class DeviceAssociationWithFactDataService extends AbstractDeviceAssociat
         return updatedCount;
     }
 
+    
     /**
      * Restores the association of a device based on the provided device status request.
      *
-     * @param deviceStatusRequest The device status request containing the necessary information.
-     * @return The number of associations restored.
-     * @throws InvalidAttributeValueException If an error occurs during the association restoration process.
+     * <p>This method validates the device association, updates its status to 
+     * "ASSOCIATED", and modifies the associated metadata. If the device is found, 
+     * it updates the registered client information in the Spring authentication system.
+     *
+     * @param deviceStatusRequest The request containing the device status details 
+     *                            and user information.
+     * @return The number of records updated in the database.
+     * @throws NoSuchEntityException If no matching device association is found.
+     * @throws javax.naming.directory.InvalidAttributeValueException If the provided 
+     *         attributes are invalid.
+     * @throws InvalidUserAssociation If multiple device associations are found, 
+     *         indicating a database integrity issue.
      */
     public int restoreAssociation(DeviceStatusRequest deviceStatusRequest)
         throws NoSuchEntityException, javax.naming.directory.InvalidAttributeValueException {
