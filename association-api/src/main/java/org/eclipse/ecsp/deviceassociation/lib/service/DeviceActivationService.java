@@ -39,7 +39,17 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public class DeviceActivationService {
 
+    /**
+     * A constant representing the HTTP header name "Content-Type".
+     * This is typically used to specify the media type of the resource
+     * being sent or received in an HTTP request or response.
+     */
     public static final String CONTENT_TYPE = "Content-Type";
+    /**
+     * A constant representing the media type "application/json".
+     * This is typically used to indicate that the content being sent or received
+     * is in JSON format.
+     */
     public static final String APPLICATION_JSON = "application/json";
     private static final Logger LOGGER = LoggerFactory.getLogger(DeviceActivationService.class);
 

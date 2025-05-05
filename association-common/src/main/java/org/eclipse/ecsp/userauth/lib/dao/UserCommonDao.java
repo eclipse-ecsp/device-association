@@ -57,7 +57,18 @@ import static org.eclipse.ecsp.common.CommonConstants.USER_ID;
 @Component
 @Slf4j
 public class UserCommonDao {
+    /**
+     * A constant representing a default return value.
+     * This value is typically used to indicate an error or a special condition
+     * where no valid result could be returned.
+     */
     public static final long RETURN_VALUE = -1L;
+
+    /**
+     * A constant representing the default index value.
+     * This is typically used as a placeholder or an indicator
+     * for an uninitialized or invalid index.
+     */
     public static final int INDEX = -1;
     private static final String INTERSECT = " intersect ";
     private static final String UNION = " union ";

@@ -29,7 +29,17 @@ import java.util.Calendar;
  * Utility class for date and time operations.
  */
 public class DateTimeUtils {
+    /**
+     * A constant representing the value 1000.
+     * This can be used as a utility constant for time or other calculations
+     * where the value 1000 is required.
+     */
     public static final int VALUE_1000 = 1000;
+    /**
+     * A constant representing the value 60.
+     * This can be used as a utility constant for time or other calculations
+     * where the value 60 is required.
+     */
     public static final int VALUE_60 = 60;
 
     /**

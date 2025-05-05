@@ -25,14 +25,50 @@ package org.eclipse.ecsp.notification.lib.constants;
  * These constants include URLs, default values, and header names used in the notification system.
  */
 public final class NotificationConstants {
+
+    /**
+     * Separator used in URLs.
+     */
     public static final String URL_SEPARATOR = "/";
+
+    /**
+     * API endpoint for retrieving user profile information.
+     */
     public static final String GET_USER_PROFILE_API = "/v1/users/profile";
+
+    /**
+     * API endpoint for sending notifications to non-registered users.
+     */
     public static final String POST_NOTIFICATION_NON_REG_USER_API = "/v1/notifications/nonRegisteredUsers";
+
+    /**
+     * Default locale used in the application.
+     */
     public static final String DEFAULT_LOCALE = "en_US";
+
+    /**
+     * Default brand identifier used in the application.
+     */
     public static final String DEFAULT_BRAND = "default";
+
+    /**
+     * API version identifier for version 1.0.
+     */
     public static final String API_VERSION_V1 = "1.0";
+
+    /**
+     * Header key for specifying the content type in HTTP requests.
+     */
     public static final String CONTENT_TYPE = "Content-Type";
+
+    /**
+     * MIME type for JSON content.
+     */
     public static final String APPLICATION_JSON = "application/json";
+
+    /**
+     * Key for identifying the user ID in requests or responses.
+     */
     public static final String USERID = "userId";
 
     /**

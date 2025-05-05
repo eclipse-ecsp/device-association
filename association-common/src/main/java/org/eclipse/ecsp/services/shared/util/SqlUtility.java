@@ -38,6 +38,9 @@ import java.util.Map.Entry;
  */
 @Slf4j
 public abstract class SqlUtility {
+    /**
+     * A constant representing the range value used in SQL utility operations.
+     */
     public static final int RANGE = 2;
     private static final String ORDER_BY = " ORDER BY \"";
 

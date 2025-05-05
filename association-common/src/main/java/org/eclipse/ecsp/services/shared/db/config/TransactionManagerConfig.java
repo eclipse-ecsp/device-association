@@ -40,6 +40,12 @@ public class TransactionManagerConfig implements TransactionManagementConfigurer
 
     private final DataSource dataSource;
 
+    /**
+     * Configuration class for managing transactions.
+     * This class initializes the transaction manager with the provided data source.
+     *
+     * @param dataSource the data source to be used for transaction management
+     */
     public TransactionManagerConfig(DataSource dataSource) {
         this.dataSource = dataSource;
     }

@@ -25,8 +25,12 @@ package org.eclipse.ecsp.exception.shared;
  */
 public class InputParamValidationException extends RuntimeException {
 
+    
     /**
-     * Exception thrown when there is a validation error with the input parameters.
+     * Exception thrown to indicate that there is an issue with the validation 
+     * of input parameters.
+     *
+     * @param message The detail message explaining the reason for the exception.
      */
     public InputParamValidationException(String message) {
         super(message);

@@ -54,11 +54,11 @@ import static org.eclipse.ecsp.common.CommonConstants.ID;
 @Component
 @Slf4j
 public class HcpInfoDao {
-    public static final int INDEX_2 = 2;
-    public static final int INDEX_3 = 3;
-    public static final int INDEX_4 = 4;
-    public static final int INDEX_5 = 5;
-    public static final int RETURN_VALUE = -1;
+    private static final int INDEX_2 = 2;
+    private static final int INDEX_3 = 3;
+    private static final int INDEX_4 = 4;
+    private static final int INDEX_5 = 5;
+    private static final int RETURN_VALUE = -1;
     @Autowired
     private JdbcTemplate jdbcTemplate;
     @Autowired

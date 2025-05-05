@@ -24,8 +24,23 @@ package org.eclipse.ecsp.services.shared.util;
  * The {@code HealthCheckConstants} class contains constants related to health checks.
  */
 public final class HealthCheckConstants {
+    /**
+     * Constant representing the status "OK".
+     * This is typically used to indicate that a health check or operation
+     * has completed successfully without any issues.
+     */
     public static final String OK = "OK";
+
+    /**
+     * Constant representing the success code for a successful database connection.
+     * A value of 1 indicates that the database connection was established successfully.
+     */
     public static final int DB_CONN_SUCCESS_CODE = 1;
+
+    /**
+     * A constant representing the health check value.
+     * This is used to denote the health status in the application.
+     */
     public static final String HEALTH_VAL = "health";
 
     /**

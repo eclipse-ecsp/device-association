@@ -29,12 +29,12 @@ import java.util.List;
  * The Main class is the entry point of the program.
  */
 public class Main {
-    public static final long MAKE_ID = 100L;
-    public static final long ID_1 = 10L;
-    public static final long ID_2 = 20L;
-    public static final long ID_3 = 30L;
-    public static final int FROM_YEAR = 2010;
-    public static final int TO_YEAR = 2013;
+    private static final long MAKE_ID = 100L;
+    private static final long ID_1 = 10L;
+    private static final long ID_2 = 20L;
+    private static final long ID_3 = 30L;
+    private static final int FROM_YEAR = 2010;
+    private static final int TO_YEAR = 2013;
 
     private Main() {
 

@@ -26,11 +26,38 @@ package org.eclipse.ecsp.services.shared.tables;
  * It provides the table names and column names as public static final strings.
  */
 public final class Postgres {
+    /**
+     * The name of the table used for device association.
+     */
     public static final String DEVICE_ASSOCIATION = "device_association";
+
+    /**
+     * The name of the table representing devices.
+     * The table name is case-sensitive and enclosed in double quotes.
+     */
     public static final String DEVICE = "\"Device\"";
+
+    /**
+     * The name of the table representing HCP (Health Care Provider) information.
+     * The table name is case-sensitive and enclosed in double quotes.
+     */
     public static final String HCPINFO = "\"HCPInfo\"";
+
+    /**
+     * The name of the table representing factory data for device information.
+     * The table name is case-sensitive and enclosed in double quotes.
+     */
     public static final String DEVICEINFOFACTORYDATA = "\"DeviceInfoFactoryData\"";
+
+    /**
+     * The name of the table used for tracking the activation state of devices.
+     */
     public static final String DEVICE_ACTIVATION_STATE = "device_activation_state";
+
+    /**
+     * The name of the table representing detailed device information.
+     * The table name is case-sensitive and enclosed in double quotes.
+     */
     public static final String DEVICEINFO = "\"DeviceInfo\"";
 
     /**

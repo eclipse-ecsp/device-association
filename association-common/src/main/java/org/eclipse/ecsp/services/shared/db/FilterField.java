@@ -40,31 +40,55 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface FilterField {
+    /**
+     * A constant representing an empty string.
+     * This can be used as a placeholder or default value
+     * for fields that are expected to be null or empty.
+     */
     public static final String NULL = "";
 
     /**
-     * The name of the database field associated with this filter field.
-     * If not specified, the default value is NULL.
+     * Specifies the name of the database field associated with this filter field.
+     *
+     * @return the name of the database field, or {@code NULL} if not specified.
      */
     String dbname() default NULL;
 
     /**
-     * Represents the value to be used when no value is specified for the field.
-     * The default value is NULL.
+     * Specifies the default value for the field when no value is provided.
+     *
+     * @return The default value as a string. Defaults to "NULL".
      */
     String novalue() default NULL;
 
     /**
-     * Specifies the range for the filter field.
-     * The default value is Range.NONE.
+     * Specifies the range constraint for the field.
+     * The default value is {@link Range#NONE}, indicating no range constraint.
+     *
+     * @return the range constraint for the field
      */
     Range range() default Range.NONE;
 
     /**
-     * Represents the range of a filter field.
-     * The range can be one of the following values: MIN, MAX, NONE.
+     * Enum representing the range types for a filter field.
+     * <ul>
+     *   <li>{@code MIN} - Represents the minimum range.</li>
+     *   <li>{@code MAX} - Represents the maximum range.</li>
+     *   <li>{@code NONE} - Represents no range.</li>
+     * </ul>
      */
     public enum Range {
-        MIN, MAX, NONE
+        /**
+         * Represents the minimum range.
+         */
+        MIN, 
+        /**
+         * Represents the maximum range.
+         */
+        MAX, 
+        /**
+         * Represents no range.
+         */
+        NONE
     }
 }

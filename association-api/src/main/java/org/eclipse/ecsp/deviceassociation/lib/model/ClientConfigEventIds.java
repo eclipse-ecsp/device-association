@@ -24,8 +24,13 @@ package org.eclipse.ecsp.deviceassociation.lib.model;
  * Enum representing client configuration event IDs.
  */
 public enum ClientConfigEventIds {
-
+    /**
+     * Event ID for DISASSOCIATION.
+     */
     DISASSOCIATION("disassociation"),
+    /**
+     * Event ID for WIPEDATA.
+     */
     WIPEDATA("wipedata");
 
     private String value;

@@ -24,6 +24,9 @@ package org.eclipse.ecsp.userauth.lib.model;
  * Represents a role in the system.
  */
 public class RoleDo {
+    /**
+     * A constant representing the value 32.
+     */
     public static final int VALUE_32 = 32;
     private long roleId;
     private String roleName;

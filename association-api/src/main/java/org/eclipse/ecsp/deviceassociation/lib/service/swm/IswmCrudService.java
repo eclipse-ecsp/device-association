@@ -26,30 +26,30 @@ package org.eclipse.ecsp.deviceassociation.lib.service.swm;
  * @param <I> the type of input for the vehicle operations
  */
 public interface IswmCrudService<I> {
+    
     /**
-     * Creates a new vehicle based on the provided input.
+     * Creates a vehicle based on the provided input.
      *
-     * @param input the input for creating the vehicle
-     * @return true if the vehicle is created successfully, false otherwise
-     * @throws Exception if an error occurs during the creation process
+     * @param input The input data required to create the vehicle.
+     * @return {@code true} if the vehicle was successfully created, {@code false} otherwise.
      */
     boolean createVehicle(I input);
 
     /**
-     * Creates a new vehicle based on the provided input.
+     * Updates the details of a vehicle based on the provided input.
      *
-     * @param input the input for creating the vehicle
-     * @return true if the vehicle is created successfully, false otherwise
-     * @throws Exception if an error occurs during the creation process
+     * @param input The input object containing the updated vehicle information.
+     *              This should include all necessary details required for the update.
+     * @return {@code true} if the vehicle update was successful, {@code false} otherwise.
      */
     boolean updateVehicle(I input);
-
+    
     /**
      * Deletes a vehicle based on the provided input.
      *
-     * @param input the input for deleting the vehicle
-     * @return true if the vehicle is deleted successfully, false otherwise
-     * @throws Exception if an error occurs during the deletion process
+     * @param input The input parameter containing the necessary information to identify
+     *              the vehicle to be deleted.
+     * @return {@code true} if the vehicle was successfully deleted, {@code false} otherwise.
      */
     boolean deleteVehicle(I input);
 }
