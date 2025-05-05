@@ -34,6 +34,23 @@ import java.util.List;
  */
 @Slf4j
 public class Filter {
+    /**
+     * The format string for timestamps used in the application.
+     *
+     * <p>This format follows the pattern "yyyy-MM-dd HH:mm:ss.SSS Z", where:
+     * <ul>
+     *   <li><code>yyyy</code> - Year in four digits</li>
+     *   <li><code>MM</code> - Month of the year (01-12)</li>
+     *   <li><code>dd</code> - Day of the month (01-31)</li>
+     *   <li><code>HH</code> - Hour of the day in 24-hour format (00-23)</li>
+     *   <li><code>mm</code> - Minutes (00-59)</li>
+     *   <li><code>ss</code> - Seconds (00-59)</li>
+     *   <li><code>SSS</code> - Milliseconds (000-999)</li>
+     *   <li><code>Z</code> - Time zone offset from UTC</li>
+     * </ul>
+     * This format is commonly used for precise timestamp representation
+     * including date, time, and time zone information.
+     */
     public static final String TIMESTAMP_FORMAT = "yyyy-MM-dd HH:mm:ss.SSS Z";
 
     /**
@@ -312,6 +329,20 @@ public class Filter {
      * The MatchWhereClauseBy enum represents the match types for string comparisons in the WHERE clause.
      */
     public enum MatchWhereClauseBy {
-        EQUALS(), LIKE(), ILIKE();
+        /**
+         * Represents an equality condition in the "WHERE" clause.
+         * For example, column = value.
+         */
+        EQUALS(), 
+        /**
+         * Represents a "LIKE" condition in the "WHERE" clause.
+         * For example, column LIKE value.
+         */
+        LIKE(), 
+        /**
+         * Represents an "ILIKE" condition in the "WHERE" clause.
+         * For example, column ILIKE value.
+         */
+        ILIKE();
     }
 }

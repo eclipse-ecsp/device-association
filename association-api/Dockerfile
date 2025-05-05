@@ -1,19 +1,19 @@
 FROM tomcat:10.1.40-jdk17
 
-ARG ENVIRONMENT
-RUN echo ${ENVIRONMENT}
+#ARG ENVIRONMENT
+#RUN echo ${ENVIRONMENT}
 
 # Add War file
 ADD target/vehicle-association-service.war /tmp/vehicle-association-service.war
 
 # Add conf directory
-ADD config/${ENVIRONMENT}/ /usr/local/tomcat/conf/vehicle-association-service/
+ADD config/dev/ /usr/local/tomcat/conf/vehicle-association-service/
 
 # Add context file
-ADD config/${ENVIRONMENT}/context.xml /usr/local/tomcat/conf/Catalina/localhost/vehicle-association-service.xml
+ADD config/dev/context.xml /usr/local/tomcat/conf/Catalina/localhost/vehicle-association-service.xml
 
 #Add server.xml
-ADD config/${ENVIRONMENT}/server.xml /usr/local/tomcat/conf/server.xml
+ADD config/dev/server.xml /usr/local/tomcat/conf/server.xml
 
 ADD src/main/resources/kafka.client.keystore.jks /kafka/ssl/kafka.client.keystore.jks
 ADD src/main/resources/kafka.client.truststore.jks /kafka/ssl/kafka.client.truststore.jks

@@ -21,14 +21,39 @@
 package org.eclipse.ecsp.configuration.lib.model;
 
 /**
- * Enum representing the configuration status.
+ * Represents the status of a configuration.
+ * Each status is associated with a specific message.
  */
 public enum ConfigurationStatus {
+
+    /**
+     * Indicates that the configuration is new and has not been processed yet.
+     */
     NEW("New"),
+
+    /**
+     * Indicates that the configuration has been sent for processing.
+     */
     SENT("Sent"),
+
+    /**
+     * Indicates that the configuration has been successfully delivered.
+     */
     DELIVERED("Delivered"),
+
+    /**
+     * Indicates that the configuration is invalid or contains errors.
+     */
     INVALID("Invalid"),
+
+    /**
+     * Indicates that the configuration has been deleted.
+     */
     DELETED("Deleted"),
+
+    /**
+     * Represents all possible statuses of the configuration.
+     */
     ALL("All");
 
     private String message;

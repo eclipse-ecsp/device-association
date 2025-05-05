@@ -21,15 +21,43 @@
 package org.eclipse.ecsp.notification.lib.constants;
 
 /**
- * The Constants class contains constant values used in the application.
+ * A utility class that holds constant values used throughout the application.
  */
 public final class Constants {
+
+    /**
+     * The URL separator used in constructing URLs.
+     */
     public static final String URL_SEPARATOR = "/";
+
+    /**
+     * The HTTP header name for specifying the content type of a request or response.
+     */
     public static final String CONTENT_TYPE = "Content-Type";
+
+    /**
+     * The MIME type for JSON content.
+     */
     public static final String APPLICATION_JSON = "application/json";
+
+    /**
+     * The HTTP header name for specifying the accepted response format.
+     */
     public static final String ACCEPT = "accept";
+
+    /**
+     * The HTTP header name for authorization credentials.
+     */
     public static final String HEADER_NAME_AUTHORIZATION = "Authorization";
+
+    /**
+     * The separator used to denote the start of query parameters in a URL.
+     */
     public static final String QUERY_PARAM_SEPARATOR = "?";
+
+    /**
+     * The default sort order used in queries, set to descending order.
+     */
     public static final String DEFAULT_SORT_ORDER = "sortOrder=DESC";
 
     /**
