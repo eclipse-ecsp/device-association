@@ -26,10 +26,34 @@ import java.io.Serializable;
  * The base response class for HCP services.
  */
 public abstract class HcpServicesBaseResponse implements Serializable {
+    /**
+     * The HTTP status code associated with the response.
+     * This field typically indicates the result of the HTTP request,
+     * such as 200 for success, 404 for not found, etc.
+     */
     protected Integer httpStatusCode;
+
+    /**
+     * The unique identifier for the request. This is used to track and correlate
+     * the request throughout the system.
+     */
     protected String requestId;
+    /**
+     * The response code indicating the status or result of the operation.
+     * This field is typically used to convey success, failure, or specific
+     * error codes in the response.
+     */
     protected String code;
+    /**
+     * The reason for the response, providing additional context or explanation
+     * for the status or result of the operation.
+     */
     protected String reason;
+    /**
+     * A message providing further details about the response.
+     * This field can be used to convey additional information or error messages
+     * related to the operation.
+     */
     protected String message;
 
     /**

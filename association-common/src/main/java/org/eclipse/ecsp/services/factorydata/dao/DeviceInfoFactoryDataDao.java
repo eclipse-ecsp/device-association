@@ -106,6 +106,13 @@ public class DeviceInfoFactoryDataDao {
         "select vin from vin_details v  left join \"DeviceInfoFactoryData\" d on v.reference_id=d.\"ID\" where d" 
             +            ".imei=?";
 
+    /**
+     * A thread-unsafe date formatter instance used to format dates in the "yyyy/MM/dd" pattern.
+     *
+     * <p><b>Note:</b> {@link SimpleDateFormat} is not thread-safe. If this formatter is accessed
+     * by multiple threads, consider using synchronization or a thread-local instance to avoid
+     * concurrency issues.
+     */
     public final SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy/MM/dd");
     private static final String WHERE = " WHERE ";
     private static final String GET_COUNT_FROM_DIFD = "select count(*) from public.\"DeviceInfoFactoryData\" ";
@@ -1281,7 +1288,26 @@ public class DeviceInfoFactoryDataDao {
      * - STATE
      */
     public enum DeviceDetailsInputTypeEnum {
-        IMEI, SERIAL_NUMBER, DEVICE_ID, VIN, STATE;
+        /**
+         * Represents the IMEI (International Mobile Equipment Identity) input type.
+         */
+        IMEI,
+        /**
+         * Represents the SERIAL_NUMBER input type.
+         */ 
+        SERIAL_NUMBER, 
+        /**
+         * Represents the DEVICE_ID input type.
+         */
+        DEVICE_ID, 
+        /**
+         * Represents the VIN (Vehicle Identification Number) input type.
+         */
+        VIN,
+        /**
+         * Represents the STATE input type.
+         */ 
+        STATE;
     }
 
 

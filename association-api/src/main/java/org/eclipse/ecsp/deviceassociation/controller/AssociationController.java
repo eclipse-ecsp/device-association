@@ -169,11 +169,12 @@ public class AssociationController {
     private UserManagementClient userManagerService;
 
     /**
-     * Creates an instance of the AssociationController class.
+     * Constructs an instance of AssociationController with the specified services.
      *
-     * @param deviceAssocFactoryService The service for device association with fact data.
-     * @param vinAssociationService The service for VIN association.
-     * @param deviceAssociationService The service for device association.
+     * @param deviceAssocFactoryService the service for handling device associations with fact data (version 2)
+     * @param vinAssociationService the service for managing VIN (Vehicle Identification Number) associations
+     * @param deviceAssociationService the service for managing device associations
+     * @param vehicleProfileService the service for handling vehicle profile operations
      */
     @Autowired
     public AssociationController(
@@ -1174,12 +1175,16 @@ public class AssociationController {
         return RestResponse.ok(response);
     }
 
+    
     /**
-     * Handles general exceptions that occur during device association.
+     * Handles general exceptions and constructs a failure response for the HCP services.
      *
-     * @param deviceStatusRequest The device status request object.
-     * @param requestId The unique identifier for the request.
-     * @return The HcpServicesFailureResponse object containing the error code and message.
+     * @param deviceStatusRequest The request object containing device status details such as
+     *                            IMEI, serial number, and device ID.
+     * @param e                   The exception that occurred.
+     * @param requestId           The unique identifier for the request.
+     * @return A {@code HcpServicesFailureResponse} object containing the error code, message,
+     *         and other relevant details.
      */
     public HcpServicesFailureResponse generalException(DeviceStatusRequest deviceStatusRequest,
                                                        Exception e, String requestId) {

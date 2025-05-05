@@ -55,11 +55,28 @@ import java.util.List;
 public class HcpAmazonS3Client {
 
 
+    /**
+     * The name of the directory used to store OTA (Over-The-Air) update packages.
+     * This constant is used to identify the directory where OTA packages are
+     * located or should be placed.
+     */
     public static final String UPDATE_PKG_DIR_NAME = "ota-packages";
+
+    /**
+     * The directory name used to store VIN (Vehicle Identification Number) lists
+     * for OTA (Over-The-Air) updates in Amazon S3.
+     */
     public static final String VIN_LIST_DIR_NAME = "ota-vins";
+    /**
+     * The name of the Amazon S3 bucket used for Over-The-Air (OTA) Proof of Concept (POC).
+     * This bucket is utilized for storing and retrieving OTA-related data.
+     */
     public static final String OTA_BUCKET = "ota-poc";
+    /**
+     * The name of the S3 bucket used for storing configuration files.
+     */
     public static final String CONFIG_BUCKET = "configurations";
-    protected static final Logger LOGGER = LoggerFactory.getLogger(HcpAmazonS3Client.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(HcpAmazonS3Client.class);
 
     //private AmazonS3 s3Client;
     //private TransferManager transferManager;
@@ -221,8 +238,13 @@ public class HcpAmazonS3Client {
 
 
     public enum S3Buckets {
-
+        /**
+         * The name of the Amazon S3 bucket used for Over-The-Air (OTA) updates.
+         */
         OTA_BUCKET(HcpAmazonS3Client.OTA_BUCKET),
+        /**
+         * The name of the Amazon S3 bucket used for storing configuration files.
+         */
         CONFIG_BUCKET(HcpAmazonS3Client.CONFIG_BUCKET);
 
         private String bucketName;

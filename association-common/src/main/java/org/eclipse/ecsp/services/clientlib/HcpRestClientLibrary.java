@@ -39,16 +39,26 @@ import static org.eclipse.ecsp.common.CommonConstants.AUTH_TOKEN;
 @Slf4j
 public class HcpRestClientLibrary {
 
+    /**
+     * The RestTemplate instance used for making RESTful web service calls.
+     * This is an autowired dependency, which means it is automatically injected
+     * by the Spring framework. It provides convenient methods for interacting
+     * with RESTful APIs, such as sending HTTP requests and processing responses.
+     */
     @Autowired
     protected RestTemplate restTemplate;
 
     /**
-     * Sends a GET request to the specified service URL with the provided request headers.
+     * Executes an HTTP GET request to the specified service URL with the provided
+     * request headers and maps the response to the specified class type.
      *
-     * @param serviceUrl     The URL of the service.
-     * @param requestHeaders The headers to be included in the request.
-     * @param cls            The class type of the response entity.
-     * @return The response entity.
+     * @param <T>           The type of the response body.
+     * @param serviceUrl    The URL of the service to send the GET request to.
+     * @param requestHeaders The HTTP headers to include in the request.
+     * @param cls           The class type to which the response body should be mapped.
+     * @return A {@link ResponseEntity} containing the response body of type {@code T}
+     *         and HTTP status code. If the response is null, the method logs a debug
+     *         message indicating that the response entity is null.
      */
     public <T> ResponseEntity<T> doGet(String serviceUrl, HttpHeaders requestHeaders, Class<T> cls) {
         log.debug("doGet:{}<------", serviceUrl);
@@ -65,14 +75,18 @@ public class HcpRestClientLibrary {
         return responseEntity;
     }
 
+    
     /**
-     * Sends a POST request to the specified service URL with the provided request headers and body.
+     * Sends an HTTP POST request to the specified service URL with the provided
+     * request headers and body, and returns the response as a ResponseEntity of the
+     * specified type.
      *
-     * @param serviceUrl     The URL of the service.
-     * @param requestHeaders The headers to be included in the request.
-     * @param body           The body of the request.
-     * @param cls            The class type of the response entity.
-     * @return The response entity.
+     * @param <T>           The type of the response body.
+     * @param serviceUrl    The URL of the service to which the POST request is sent.
+     * @param requestHeaders The HTTP headers to include in the request.
+     * @param body          The body of the POST request.
+     * @param cls           The class type of the response body.
+     * @return A ResponseEntity containing the response body of the specified type.
      */
     public <T> ResponseEntity<T> doPost(String serviceUrl, HttpHeaders requestHeaders, Object body, Class<T> cls) {
         ResponseEntity<T> responseEntity = null;
@@ -96,13 +110,17 @@ public class HcpRestClientLibrary {
     }
 
     /**
-     * Sends a PUT request to the specified service URL with the provided request headers and body.
+     * Executes an HTTP PUT request to the specified service URL with the provided
+     * request headers and body, and returns the response as a ResponseEntity of the
+     * specified type.
      *
-     * @param serviceUrl     The URL of the service.
-     * @param requestHeaders The headers to be included in the request.
-     * @param body           The body of the request.
-     * @param cls            The class type of the response entity.
-     * @return The response entity.
+     * @param <T>           The type of the response body.
+     * @param serviceUrl    The URL of the service to which the PUT request is sent.
+     * @param requestHeaders The HTTP headers to include in the request.
+     * @param body          The body of the PUT request.
+     * @param cls           The class type of the response body.
+     * @return A ResponseEntity containing the response from the server, with the
+     *         body deserialized into the specified type.
      */
     public <T> ResponseEntity<T> doPut(String serviceUrl, HttpHeaders requestHeaders, Object body, Class<T> cls) {
         ResponseEntity<T> responseEntity = null;

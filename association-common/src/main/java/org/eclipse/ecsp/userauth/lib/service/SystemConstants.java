@@ -25,6 +25,11 @@ package org.eclipse.ecsp.userauth.lib.service;
  */
 public final class SystemConstants {
 
+    /**
+     * The constant representing the system user with administrative privileges.
+     * This user is typically used for system-level operations and has the highest
+     * level of access within the application.
+     */
     public static final String SYSTEM_USER = "SuperAdmin";
 
     /**

@@ -24,6 +24,14 @@ package org.eclipse.ecsp.services.shared.util;
  * The SharedConstants interface provides constant values that are shared across the application.
  */
 public interface SharedConstants {
+    /**
+     * A constant representing a comma (",").
+     * This can be used as a delimiter or separator in various operations.
+     */
     public static String COMMA = ",";
+
+    /**
+     * A constant representing an underscore ("_").
+     */
     public static String UNDERSCORE = "_";
 }
