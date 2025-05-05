@@ -33,10 +33,25 @@ import org.eclipse.ecsp.entities.AbstractEventData;
 public class DeviceVinEventData extends AbstractEventData {
 
     private static final long serialVersionUID = 1L;
+    /**
+     * The value of the VIN.
+     */
     protected String value;
+    /**
+     * Indicates whether the event data is dummy.
+     */
     protected boolean dummy;
+    /**
+     * The type of the event data.
+     */
     protected String type;
+    /**
+     * The model name associated with the event data.
+     */
     protected String modelName;
+    /**
+     * The device type associated with the event data.
+     */
     protected String deviceType;
 
     /**

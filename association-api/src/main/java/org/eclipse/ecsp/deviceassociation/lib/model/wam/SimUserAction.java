@@ -24,7 +24,13 @@ package org.eclipse.ecsp.deviceassociation.lib.model.wam;
  * Represents the possible actions that can be performed on a SIM user.
  */
 public enum SimUserAction {
+    /**
+     * The SIM user action is to activate a new user.
+     */
     ACTIVATE("Activate"),
+    /**
+     * The SIM user action is to terminate an existing user.
+     */
     TERMINATE("Terminate");
 
     private String simUserAction;

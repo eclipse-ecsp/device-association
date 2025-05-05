@@ -63,10 +63,28 @@ public class VehicleProfileService {
         MAPPER.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
+    /**
+     * The Data Access Object (DAO) for managing device associations.
+     * This is used to interact with the underlying database or persistence layer
+     * to perform CRUD operations related to device associations.
+     */
     @Autowired
     protected DeviceAssociationDao deviceAssociationDao;
+    /**
+     * The environment configuration for device association properties.
+     * This is an autowired dependency that provides access to the configuration
+     * settings specific to the device association module.
+     *
+     * @see EnvConfig
+     * @see DeviceAssocationProperty
+     */
     @Autowired
     protected EnvConfig<DeviceAssocationProperty> envConfig;
+    /**
+     * The DeviceAssociationService is used to manage the association between devices
+     * and their respective profiles. This service provides methods to handle
+     * operations related to device associations.
+     */
     @Autowired
     protected DeviceAssociationService deviceAssociationService;
     @Autowired
@@ -173,9 +191,10 @@ public class VehicleProfileService {
     }
 
     /**
-     * Deletes a vehicle profile using the provided deleteVehicleProfileUrl.
+     * Deletes a vehicle profile by calling the Vehicle Profile DELETE API.
      *
-     * @param deleteVehicleProfileUrl The URL for deleting the vehicle profile.
+     * @param deleteVehicleProfileUrl The URL of the Vehicle Profile DELETE API.
+     * @return {@code true} if the vehicle profile was successfully deleted, {@code false} otherwise.
      */
     public boolean deleteVehicleProfile(String deleteVehicleProfileUrl) {
         boolean isDeleted = false;

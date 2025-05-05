@@ -29,6 +29,9 @@ import java.util.List;
 public class WipeDeviceRequest implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    /**
+     * A list of serial numbers representing the devices to be wiped.
+     */
     List<String> serialNumber;
 
     /**

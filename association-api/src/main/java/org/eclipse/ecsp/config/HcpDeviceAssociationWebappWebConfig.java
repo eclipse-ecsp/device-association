@@ -40,6 +40,11 @@ import java.util.List;
 @EnableWebMvc
 public class HcpDeviceAssociationWebappWebConfig implements WebMvcConfigurer {
 
+    /**
+     * The constant representing the path for Swagger resources.
+     * This is used to define the base path for accessing Swagger-related resources
+     * within the application.
+     */
     public static final String SWAGGER_RESOURCES_PATH = "swagger";
 
     /**

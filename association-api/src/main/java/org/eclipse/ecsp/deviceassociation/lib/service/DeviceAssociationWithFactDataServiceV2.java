@@ -158,10 +158,28 @@ public class DeviceAssociationWithFactDataServiceV2 extends AbstractDeviceAssoci
     private static final String APPROVED = "approved";
     private static final String UPDATE_REGISTERED_CLIENT_SPRING_AUTH_SUCCEEDED =
             "Successfully updated registered client in Spring Auth, deviceId: {}";
+    /**
+     * A constant representing a default count value.
+     * This value is set to -1, which may indicate an uninitialized or invalid state.
+     */
     public static final int COUNT = -1;
+    /**
+     * The number of iterations or attempts to be performed.
+     * This constant is used to define a fixed value for iteration logic.
+     */
     public static final int ITER = 2;
+    /**
+     * A constant representing the count value of 64.
+     * This constant can be used wherever a fixed value of 64 is required.
+     */
     public static final int COUNT_64 = 64;
 
+    /**
+     * The SpringAuthTokenGenerator is a lazily initialized, autowired dependency 
+     * used for generating authentication tokens. The @Lazy annotation ensures 
+     * that the bean is not instantiated until it is needed, optimizing resource 
+     * usage and startup time.
+     */
     @Autowired
     @Lazy
     protected SpringAuthTokenGenerator springAuthTokenGenerator;

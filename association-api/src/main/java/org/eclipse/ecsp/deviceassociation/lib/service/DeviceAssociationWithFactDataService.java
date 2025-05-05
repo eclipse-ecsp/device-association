@@ -138,8 +138,19 @@ import static org.springframework.http.HttpStatus.OK;
  */
 public class DeviceAssociationWithFactDataService extends AbstractDeviceAssociationService {
 
+    /**
+     * Constant representing the key for the vehicle model year.
+     * This key is used to identify or retrieve the model year of a vehicle
+     * in the context of device association.
+     */
     public static final String VEHICLE_MODEL_YEAR = "vehicleModelYear";
     private static final Logger LOGGER = LoggerFactory.getLogger(DeviceAssociationWithFactDataService.class);
+    /**
+     * A thread-unsafe date formatter instance used to format dates in the pattern "yyyy/MM/dd".
+     * 
+     * <p><b>Note:</b> {@link SimpleDateFormat} is not thread-safe. If this formatter is accessed
+     * by multiple threads, consider using synchronization or creating separate instances for each thread.
+     */
     public final SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy/MM/dd");
     private static final String ASSOC_DATA_DATABASE_INTEGRITY_ERROR =
             "Association data - Database Integrity Error. There is more than one record.";
@@ -150,12 +161,37 @@ public class DeviceAssociationWithFactDataService extends AbstractDeviceAssociat
             "Successfully updated registered client in Spring Auth, deviceId: {}";
     private static final String OLD_DEVICE_PROVISION_WITH_IMEI =
             "Old Device is Provisioned with its imei - ";
+    /**
+     * A constant representing a default count value.
+     * The value is set to -1, which may indicate an uninitialized or invalid state.
+     */
     public static final int COUNT = -1;
+    /**
+     * A constant representing the number of iterations.
+     * This value is set to 2 and is used to control the number of iterations
+     * in the associated logic or process.
+     */
     public static final int ITER = 2;
+    /**
+     * A constant representing the count value of 64.
+     * This constant can be used wherever a fixed value of 64 is required.
+     */
     public static final int COUNT_64 = 64;
 
+    /**
+     * Indicates whether SWM (Software Management) integration is enabled.
+     * This value is configurable through the application properties using the key
+     * {@code swm_integration_enabled}. If not explicitly set, it defaults to {@code true}.
+     */
     @Value("${swm_integration_enabled:true}")
     public boolean swmIntegrationEnabled;
+    /**
+     * The SpringAuthTokenGenerator is a lazily initialized, autowired dependency
+     * used for generating authentication tokens. The @Lazy annotation ensures
+     * that the bean is not instantiated until it is needed, optimizing resource
+     * usage. This service is likely used for handling authentication-related
+     * operations within the device association context.
+     */
     @Autowired
     @Lazy
     protected SpringAuthTokenGenerator springAuthTokenGenerator;
@@ -811,11 +847,17 @@ public class DeviceAssociationWithFactDataService extends AbstractDeviceAssociat
         return deviceInfoData;
     }
 
+    
     /**
-     * Performs a state change for a device association.
+     * Handles the state change request for a device association.
      *
-     * @param stateChangeRequest The request object containing the necessary data for the state change.
-     * @throws NoSuchEntityException JsonProcessingException If an error occurs during the state change process.
+     * @param stateChangeRequest The request object containing details about the state change, 
+     *                           including the user ID and the desired state.
+     * @throws NoSuchEntityException If the entity associated with the request cannot be found 
+     *                               or if an error occurs during the state change process.
+     * @throws JsonProcessingException If there is an error while processing JSON data.
+     * @throws InvalidUserAssociation If the user is not whitelisted or authorized to perform 
+     *                                the state change.
      */
     public void stateChange(StateChangeRequest stateChangeRequest)
             throws NoSuchEntityException, JsonProcessingException {

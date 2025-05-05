@@ -31,6 +31,11 @@ import java.util.Map;
  */
 @Service
 public class UserBelongingValidatorImpl implements UserBelongingValidator<Map<String, Object>> {
+    /**
+     * The Data Access Object (DAO) for managing device associations.
+     * This is used to interact with the underlying database or persistence layer
+     * to perform operations related to device associations.
+     */
     @Autowired
     protected DeviceAssociationDao deviceAssociationDao;
 

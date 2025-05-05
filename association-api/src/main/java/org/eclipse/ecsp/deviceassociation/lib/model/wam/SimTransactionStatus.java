@@ -24,11 +24,29 @@ package org.eclipse.ecsp.deviceassociation.lib.model.wam;
  * Represents the status of a SIM transaction.
  */
 public enum SimTransactionStatus {
+    /**
+     * The SIM transaction is completed.
+     */
     COMPLETED("Completed"),
+    /**
+     * The SIM transaction is in progress.
+     */
     IN_PROGRESS("In Progress"),
+    /**
+     * The SIM transaction is pending.
+     */
     PENDING("Pending"),
+    /**
+     * The SIM transaction is canceled.
+     */
     CANCELED("Canceled"),
+    /**
+     * The SIM transaction is rejected.
+     */
     REJECTED("Rejected"),
+    /**
+     * The SIM transaction is failed.
+     */
     FAILED("Failed");
 
     private String simTransactionStatus;

@@ -24,5 +24,11 @@ package org.eclipse.ecsp.deviceassociation.lib.rest.support;
  * This interface defines the HTTP headers used in RESTful API requests and responses.
  */
 public interface HttpRestHeaders {
+    /**
+     * The HTTP header field name for specifying the location of the resource 
+     * that corresponds to the response content. This header is typically used 
+     * to indicate the URI of a newly created resource or the location of a 
+     * resource that is relevant to the response.
+     */
     String CONTENT_LOCATION = "Content-Location";
 }

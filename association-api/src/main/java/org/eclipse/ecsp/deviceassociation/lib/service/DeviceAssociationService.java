@@ -83,6 +83,10 @@ public class DeviceAssociationService extends AbstractDeviceAssociationService {
     private static final String FAILED = "FAILED";
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DeviceAssociationService.class);
+    /**
+     * Service for handling device associations with fact data (version 2).
+     * This service is injected using Spring's @Autowired annotation.
+     */
     @Autowired
     protected DeviceAssociationWithFactDataServiceV2 deviceAssocFactoryServiceV2;
     @Value("#{'${supported_device_info_params}'.split(',')}")
@@ -242,11 +246,32 @@ public class DeviceAssociationService extends AbstractDeviceAssociationService {
     }
 
     /**
-     * Wipes the data of devices associated with the given user.
+     * Wipes the devices associated with the given user ID and serial numbers.
      *
-     * @param userId         the ID of the user
-     * @param serialNumbers  the list of serial numbers of devices to be wiped
-     * @return               the list of IDs of the wiped devices
+     * <p>This method performs the following operations:
+     * <ul>
+     *   <li>Fetches all device associations for the given user ID.</li>
+     *   <li>Filters the serial numbers to remove associations for devices not requested for wiping.</li>
+     *   <li>Validates that all requested devices have an existing association; throws an exception if not.</li>
+     *   <li>Removes duplicate associations for the same serial number, keeping only the primary owner.</li>
+     *   <li>Performs the association update and reactivates devices as needed.</li>
+     *   <li>Updates old associations with dummy values.</li>
+     * </ul>
+     *
+     * @param userId The ID of the user whose devices are to be wiped.
+     * @param serialNumbers A list of serial numbers of the devices to be wiped.
+     * @return A list of new device IDs after the wipe operation, or {@code null} if no devices were wiped.
+     * @throws InvalidAlgorithmParameterException If an invalid algorithm parameter is encountered.
+     * @throws NoSuchPaddingException If the specified padding mechanism is not available.
+     * @throws IllegalBlockSizeException If the block size is invalid.
+     * @throws NoSuchAlgorithmException If the specified algorithm is not available.
+     * @throws BadPaddingException If the padding is invalid.
+     * @throws InvalidKeyException If the key is invalid.
+     * @throws ApiPreConditionFailedException If preconditions for the wipe operation are not met, such as:
+     *         <ul>
+     *           <li>No associations found for the requested devices.</li>
+     *           <li>No devices found with the associated status.</li>
+     *         </ul>
      */
     @Transactional(propagation = Propagation.NEVER)
     public List<String> wipeDevices(String userId, List<String> serialNumbers)

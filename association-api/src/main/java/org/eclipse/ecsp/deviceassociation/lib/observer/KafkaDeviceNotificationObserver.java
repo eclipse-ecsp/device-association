@@ -71,9 +71,22 @@ import java.util.Properties;
  */
 @Service("kafkaDeviceNotif")
 public class KafkaDeviceNotificationObserver implements DeviceAssociationObserver {
-
+    /**
+     * Constant representing the key for vehicle specification in the Kafka message.
+     * This key is used to identify and process vehicle specification data.
+     */
     public static final String VEHICLESPECIFICATION = "vehiclespecification";
+    /**
+     * The name of the HTTP header used for authorization.
+     * This header typically contains credentials for authenticating a request.
+     */
     public static final String HEADER_NAME_AUTHORIZATION = "Authorization";
+    /**
+     * The format string for the Authorization header value.
+     * This constant is used to construct the Authorization header
+     * value in the format "Basic credentials" where credentials
+     * is typically a Base64-encoded username and password.
+     */
     public static final String HEADER_VALUE_AUTHORIZATION = "Basic %s";
     private static final Logger LOGGER = LoggerFactory.getLogger(KafkaDeviceNotificationObserver.class);
     private static String eventsSync = "device.events.sync.puts";
@@ -93,8 +106,20 @@ public class KafkaDeviceNotificationObserver implements DeviceAssociationObserve
             "## Exception occurred while trying to convert the object to json string";
     private static final String KAFKA_VIN_TOPIC = "## Kafka vin topic: {}";
 
+    /**
+     * The Data Access Object (DAO) for managing device associations.
+     * This is used to interact with the underlying database or persistence layer
+     * to perform CRUD operations related to device associations.
+     *
+     * <p>This field is automatically injected by the Spring Framework using the
+     * {@code @Autowired} annotation.
+     */
     @Autowired
     protected DeviceAssociationDao deviceAssociationDao;
+    /**
+     * Service for managing vehicle profiles. This service is used to interact with
+     * and retrieve information related to vehicle profiles.
+     */
     @Autowired
     VehicleProfileService vehicleProfileService;
     @Autowired

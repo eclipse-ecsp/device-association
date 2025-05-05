@@ -62,6 +62,9 @@ public class KinesisDeviceNotificationObserver implements DeviceAssociationObser
     private static final String ERROR_CONVERTING_OBJECT_TO_STRING =
             "exception occured while trying to conver the object to hson string";
     private static final Logger LOGGER = LoggerFactory.getLogger(KinesisDeviceNotificationObserver.class);
+    /**
+     * The AmazonKinesisClient instance used to interact with the Amazon Kinesis service.
+     */
     public AmazonKinesisClient amazonKinesisClient;
     @Autowired
     private DeviceAssociationObservable observable;

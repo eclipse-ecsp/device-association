@@ -119,7 +119,7 @@ public class Constants {
     public static final String EQUALS = "=";
 
     /**
-     * Constant for ampersand (&).
+     * Constant for ampersand.
      */
     public static final String AND = "&";
 

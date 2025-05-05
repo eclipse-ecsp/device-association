@@ -48,6 +48,11 @@ import static org.eclipse.ecsp.deviceassociation.lib.service.MessageConstants.US
 public class DeviceAssosiationDetailsService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DeviceAssosiationDetailsService.class);
+    /**
+     * The Data Access Object (DAO) for managing device association data.
+     * This is an autowired dependency, which means it will be automatically
+     * injected by the Spring framework at runtime.
+     */
     @Autowired
     protected DeviceAssociationDao deviceAssociationDao;
 

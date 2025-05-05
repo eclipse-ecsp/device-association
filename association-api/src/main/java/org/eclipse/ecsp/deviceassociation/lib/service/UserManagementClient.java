@@ -49,7 +49,18 @@ import java.util.Arrays;
 @Component
 public class UserManagementClient {
 
+    /**
+     * A constant representing the prefix for a Bearer token used in 
+     * authorization headers. This is typically used to prepend the 
+     * token value when constructing the Authorization header for 
+     * HTTP requests.
+     */
     public static final String BEARER_KEY = "Bearer ";
+
+    /**
+     * Error message constant used to log failures when calling the getUserDetails API.
+     * The placeholder '{}' is used to insert specific error details at runtime.
+     */
     public static final String USER_DETAILS_ERROR_MESSAGE = "### call to getUserDetails api failed:: {}";
     private static final ObjectMapper MAPPER = new ObjectMapper();
     private static final Logger LOGGER = LoggerFactory.getLogger(UserManagementClient.class);
@@ -58,6 +69,14 @@ public class UserManagementClient {
         MAPPER.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
+    /**
+     * The SpringAuthTokenGenerator is a dependency that generates authentication tokens
+     * for secure communication. It is marked with @Lazy to ensure that it is only
+     * initialized when it is first needed, optimizing resource usage.
+     *
+     * <p>This field is automatically injected by Spring's dependency injection mechanism
+     * using the @Autowired annotation.
+     */
     @Autowired
     @Lazy
     protected SpringAuthTokenGenerator springAuthTokenGenerator;
