@@ -72,6 +72,7 @@
         <maven.build.timestamp.format>yyMMdd-HHmmss</maven.build.timestamp.format>
         <maven.compiler.debug>false</maven.compiler.debug>
         <maven.resource.plugin.version>3.0.2</maven.resource.plugin.version>
+        <java.version>17</java.version>
         <!-- Code Coverage Properties -->
         <jacoco.ut.execution.data.file>${project.build.directory}/coverage-reports/jacoco-ut.exec
         </jacoco.ut.execution.data.file>
@@ -167,12 +168,7 @@
             **/userauth/lib/service/SystemConstants.java,
             **/notification/lib/model/nc/*.java,
             **/userauth/lib/model/*.java,
-            **/services/shared/tables/Postgres.java,
-            **/deviceassociation/lib/dao/DeviceAssociationDao.java,
-            **/services/factorydata/dao/DeviceInfoFactoryDataDao.java,
-            **/services/shared/db/Filter.java,
-            **/services/shared/db/FilterField.java,
-            **/common/ResponsePayload.java
+            **/services/shared/tables/Postgres.java
         </sonar.exclusions>
         <!-- 2.29 Release - suppressing NP_NULL_PARAM_DEREF Sonar bug and SQL_INJECTION_SPRING_JDBC Sonar vulnerability -->
         <sonar.issue.ignore.multicriteria>e1,e2,e3,e4</sonar.issue.ignore.multicriteria>
