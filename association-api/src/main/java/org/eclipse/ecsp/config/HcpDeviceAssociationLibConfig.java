@@ -25,6 +25,8 @@ import org.eclipse.ecsp.common.config.EnvConfig;
 import org.eclipse.ecsp.common.config.EnvConfigLoader;
 import org.eclipse.ecsp.deviceassociation.lib.config.DeviceAssocationProperty;
 import org.eclipse.ecsp.springauth.client.rest.SpringAuthRestClient;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
+import org.springframework.boot.autoconfigure.web.client.RestTemplateAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
@@ -33,6 +35,7 @@ import org.springframework.validation.beanvalidation.MethodValidationPostProcess
  * Configuration class for HcpDeviceAssociationLib.
  */
 @Configuration
+@ImportAutoConfiguration(RestTemplateAutoConfiguration.class)
 public class HcpDeviceAssociationLibConfig {
 
     @Resource(name = "envNotifConfigLoader")
