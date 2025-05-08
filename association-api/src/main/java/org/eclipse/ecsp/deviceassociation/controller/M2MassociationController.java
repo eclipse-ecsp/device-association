@@ -104,7 +104,7 @@ public class M2MassociationController {
     @Operation(summary = "PATCH /v1/self/associations/{associationId}", responses = {
         @io.swagger.v3.oas.annotations.responses.ApiResponse(description = "Success", responseCode = "200",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))})
-    @SecurityRequirement(name = Security.Fields.JWT_AUTH_VALIDATOR,
+    @SecurityRequirement(name = "JwtAuthValidator",
             scopes = { "AssociateMyselfToVehicle,UserDeviceAssocn,SelfManage" })
     public ResponseEntity<ExtendedApiResponse<Object>> updateAssociation(
         @RequestHeader(value = CORRELATION_ID) String requestId,
