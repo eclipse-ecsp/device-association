@@ -23,7 +23,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.eclipse.ecsp</groupId>
     <artifactId>device-association</artifactId>
-    <version>0.1.2</version>
+    <version>1.0.0</version>
 
     <packaging>pom</packaging>
 
@@ -245,7 +245,7 @@
         <saaj-impl.version>1.5.2</saaj-impl.version>
         <kotlin.version>1.9.25</kotlin.version>
         <cyclonedx-maven-plugin.version>2.7.10</cyclonedx-maven-plugin.version>
-        <device-common.version>0.1.1</device-common.version>
+        <device-common.version>1.0.0</device-common.version>
         <entities-version>1.1.1</entities-version>
         <log4j.version>2.24.3</log4j.version>
         <api-registry-common.version>1.1.0</api-registry-common.version>

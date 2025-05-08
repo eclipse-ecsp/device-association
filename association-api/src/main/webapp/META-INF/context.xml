@@ -23,7 +23,7 @@
 
 <Context antiJARLocking="true" antiResourceLocking="true" swallowOutput="true">
 
-    <Parameter name="com.harman.hcp.init_from_classpath" value="false"/>
+    <Parameter name="org.eclipse.ecsp.init_from_classpath" value="false"/>
     <Resource name="jms/ReferenceMQConnectionFactory"
               auth="Container"
               type="org.apache.activemq.ActiveMQConnectionFactory"

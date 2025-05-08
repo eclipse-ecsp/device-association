@@ -61,7 +61,6 @@ import org.eclipse.ecsp.exception.shared.ApiResourceNotFoundException;
 import org.eclipse.ecsp.exception.shared.ApiTechnicalException;
 import org.eclipse.ecsp.exception.shared.ApiValidationFailedException;
 import org.eclipse.ecsp.exception.shared.SimStateChangeFailureException;
-import org.eclipse.ecsp.security.Security;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -213,12 +212,11 @@ public class AssociationController {
     public ResponseEntity<ApiResponse<Object>> associateDevice(
         @Valid @RequestBody AssociateDeviceRequest associateDeviceRequest,
         HttpServletRequest request) {
-        // 2.33 Release - Sonar RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE codesmell fix
         String associateDeviceRequestData =
                 associateDeviceRequest.toString().replaceAll(CARRIAGE_AND_NEWLINE_REGEX, "");
-        LOGGER.info("## associateDeviceWithFactoryData Controller - START request: {}", associateDeviceRequestData);
         String userId = request.getHeader(USER_ID);
-        LOGGER.info("## associateDeviceWithFactoryData Controller - userId: {}", userId);
+        LOGGER.info("## associateDeviceWithFactoryData Controller - START request: {} and userId: {}", 
+                associateDeviceRequestData, userId);
         ApiResponse<Object> apiResponse;
         String bssid = associateDeviceRequest.getBssid();
         final String serialNumber = associateDeviceRequest.getSerialNumber();

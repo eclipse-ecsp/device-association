@@ -35,7 +35,6 @@ import org.eclipse.ecsp.deviceassociation.lib.service.DeviceAssociationWithFactD
 import org.eclipse.ecsp.exception.shared.ApiPreConditionFailedException;
 import org.eclipse.ecsp.exception.shared.ApiResourceNotFoundException;
 import org.eclipse.ecsp.exception.shared.ApiValidationFailedException;
-import org.eclipse.ecsp.security.Security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
