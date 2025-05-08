@@ -218,6 +218,7 @@ public class AssociationController {
                 associateDeviceRequest.toString().replaceAll(CARRIAGE_AND_NEWLINE_REGEX, "");
         LOGGER.info("## associateDeviceWithFactoryData Controller - START request: {}", associateDeviceRequestData);
         String userId = request.getHeader(USER_ID);
+        LOGGER.info("## associateDeviceWithFactoryData Controller - userId: {}", userId);
         ApiResponse<Object> apiResponse;
         String bssid = associateDeviceRequest.getBssid();
         final String serialNumber = associateDeviceRequest.getSerialNumber();
