@@ -1,9 +1,10 @@
 [<img src="./images/logo.png" width="300" height="150"/>](logo.png)
 
-[![Build](../../actions/workflows/maven-build.yml/badge.svg)](../../actions/workflows/maven-build.yml)
-[![License Compliance](../../actions/workflows/license-compliance.yml/badge.svg)](../../actions/workflows/license-compliance.yml)
-[![Java CI with Maven And CD Pipeline](../../actions/workflows/maven-ci-cd.yml/badge.svg)](../../actions/workflows/maven-ci-cd.yml)
-[![Documentation](../../actions/workflows/documentation.yml/badge.svg)](../../actions/workflows/documentation.yml)
+[![Maven Build & Sonar Analysis](https://github.com/eclipse-ecsp/device-association/actions/workflows/maven-build.yml/badge.svg)](https://github.com/eclipse-ecsp/device-association/actions/workflows/maven-build.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=eclipse-ecsp_device-association&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=eclipse-ecsp_device-association)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=eclipse-ecsp_device-association&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=eclipse-ecsp_device-association)
+[![License Compliance](https://github.com/eclipse-ecsp/device-association/actions/workflows/licence-compliance.yaml/badge.svg)](https://github.com/eclipse-ecsp/device-association/actions/workflows/licence-compliance.yaml)
+[![Latest Release](https://img.shields.io/github/v/release/eclipse-ecsp/device-association?sort=semver)](https://github.com/eclipse-ecsp/device-association/releases)
 
 # Device Association
 Device Association Component provides restful services for associating the device with a user, retrieving association details and terminating/suspending (when user doesn’t have any active subscription)/restoring devices. It also provides restful services for Many-to-Many Association and Terminations.
