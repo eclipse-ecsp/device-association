@@ -35,7 +35,6 @@ import org.eclipse.ecsp.deviceassociation.lib.service.DeviceAssociationWithFactD
 import org.eclipse.ecsp.exception.shared.ApiPreConditionFailedException;
 import org.eclipse.ecsp.exception.shared.ApiResourceNotFoundException;
 import org.eclipse.ecsp.exception.shared.ApiValidationFailedException;
-import org.eclipse.ecsp.security.Security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -104,7 +103,7 @@ public class M2MassociationController {
     @Operation(summary = "PATCH /v1/self/associations/{associationId}", responses = {
         @io.swagger.v3.oas.annotations.responses.ApiResponse(description = "Success", responseCode = "200",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))})
-    @SecurityRequirement(name = Security.Fields.JWT_AUTH_VALIDATOR,
+    @SecurityRequirement(name = "JwtAuthValidator",
             scopes = { "AssociateMyselfToVehicle,UserDeviceAssocn,SelfManage" })
     public ResponseEntity<ExtendedApiResponse<Object>> updateAssociation(
         @RequestHeader(value = CORRELATION_ID) String requestId,

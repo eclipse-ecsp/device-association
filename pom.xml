@@ -23,7 +23,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.eclipse.ecsp</groupId>
     <artifactId>device-association</artifactId>
-    <version>0.1.1</version>
+    <version>1.0.0</version>
 
     <packaging>pom</packaging>
 
@@ -173,7 +173,8 @@
             **/services/factorydata/dao/DeviceInfoFactoryDataDao.java,
             **/services/shared/db/Filter.java,
             **/services/shared/db/FilterField.java,
-            **/common/ResponsePayload.java
+            **/common/ResponsePayload.java,
+            **/deviceassociation/controller/AssociationController.java
         </sonar.exclusions>
         <!-- 2.29 Release - suppressing NP_NULL_PARAM_DEREF Sonar bug and SQL_INJECTION_SPRING_JDBC Sonar vulnerability -->
         <sonar.issue.ignore.multicriteria>e1,e2,e3,e4</sonar.issue.ignore.multicriteria>
@@ -245,7 +246,7 @@
         <saaj-impl.version>1.5.2</saaj-impl.version>
         <kotlin.version>1.9.25</kotlin.version>
         <cyclonedx-maven-plugin.version>2.7.10</cyclonedx-maven-plugin.version>
-        <device-common.version>0.1.1</device-common.version>
+        <device-common.version>1.0.0</device-common.version>
         <entities-version>1.1.1</entities-version>
         <log4j.version>2.24.3</log4j.version>
         <api-registry-common.version>1.1.0</api-registry-common.version>

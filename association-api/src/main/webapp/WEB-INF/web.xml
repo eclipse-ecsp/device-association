@@ -32,7 +32,7 @@
     </context-param>
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>com.harman.hcp.config</param-value>
+        <param-value>org.eclipse.ecsp.config</param-value>
     </context-param>
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -48,7 +48,7 @@
       </filter-mapping> -->
     <servlet>
         <servlet-name>InternalsServlet</servlet-name>
-        <servlet-class>com.harman.hcp.common.web.internals.InternalsServlet
+        <servlet-class>org.eclipse.ecsp.common.web.internals.InternalsServlet
         </servlet-class>
         <load-on-startup>10</load-on-startup>
     </servlet>

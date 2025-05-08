@@ -167,7 +167,7 @@ public class DeviceAssociationRestService {
     @Operation(summary = "POST v1/user/devices/associate/", responses = {
         @io.swagger.v3.oas.annotations.responses.ApiResponse(description = "Success", responseCode = "200",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))})
-    @SecurityRequirement(name = Security.Fields.JWT_AUTH_VALIDATOR,
+    @SecurityRequirement(name = "JwtAuthValidator",
             scopes = { "AssociateMyselfToVehicle,UserDeviceAssocn,SelfManage" })
     public ResponseEntity<SimpleResponseMessage> associateDevice(@RequestBody AssociateDeviceRequest request) {
         String associateDeviceRequestData =
@@ -186,7 +186,7 @@ public class DeviceAssociationRestService {
     @Operation(summary = "GET v1/user/associations/", responses = {
         @io.swagger.v3.oas.annotations.responses.ApiResponse(description = "Success", responseCode = "200",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))})
-    @SecurityRequirement(name = Security.Fields.JWT_AUTH_VALIDATOR,
+    @SecurityRequirement(name = "JwtAuthValidator",
             scopes = { "AssociateMyselfToVehicle,UserDeviceAssocn,SelfManage" })
     public ResponseEntity<Object> associatedDevicesOfUser(HttpServletRequest httpServletRequest) {
         LOGGER.info("associatedDevicesOfUser");
@@ -208,7 +208,7 @@ public class DeviceAssociationRestService {
     @Operation(summary = "POST v2/user/devices/associate/", responses = {
         @io.swagger.v3.oas.annotations.responses.ApiResponse(description = "Success", responseCode = "200",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))})
-    @SecurityRequirement(name = Security.Fields.JWT_AUTH_VALIDATOR,
+    @SecurityRequirement(name = "JwtAuthValidator",
             scopes = { "AssociateMyselfToVehicle,UserDeviceAssocn,SelfManage" })
     public ResponseEntity<Object> associateDeviceWithFactoryData(@Valid @RequestBody AssociateDeviceRequest device,
                                                             HttpServletRequest request) {
@@ -257,7 +257,7 @@ public class DeviceAssociationRestService {
     @Operation(summary = "GET v2/user/associations/", responses = {
         @io.swagger.v3.oas.annotations.responses.ApiResponse(description = "Success", responseCode = "200",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))})
-    @SecurityRequirement(name = Security.Fields.JWT_AUTH_VALIDATOR, scopes = { "SelfManage,Dongle,DEFAULT" })
+    @SecurityRequirement(name = "JwtAuthValidator", scopes = { "SelfManage,Dongle,DEFAULT" })
     public ResponseEntity<Object> associatedDevicesOfUserWithFactoryData(HttpServletRequest httpServletRequest) {
         LOGGER.info("associatedDevicesOfUserWithFactoryData - START");
         String userId = httpServletRequest.getHeader(USER_ID);
@@ -278,7 +278,7 @@ public class DeviceAssociationRestService {
     @Operation(summary = "GET v1/associationdetails", responses = {
         @io.swagger.v3.oas.annotations.responses.ApiResponse(description = "Success", responseCode = "200",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))})
-    @SecurityRequirement(name = Security.Fields.JWT_AUTH_VALIDATOR, scopes = { "IgniteSystem" })
+    @SecurityRequirement(name = "JwtAuthValidator", scopes = { "IgniteSystem" })
     public ResponseEntity<Object> getDeviceAssociationDetails(@RequestParam(name = "userId", required = false,
                                                     defaultValue = "") String userId) {
         LOGGER.info("Get device association details for user - {}.",
@@ -309,7 +309,7 @@ public class DeviceAssociationRestService {
     @Operation(summary = "GET v1/user/associations/{associationID}", responses = {
         @io.swagger.v3.oas.annotations.responses.ApiResponse(description = "Success", responseCode = "200",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))})
-    @SecurityRequirement(name = Security.Fields.JWT_AUTH_VALIDATOR,
+    @SecurityRequirement(name = "JwtAuthValidator",
             scopes = { "AssociateMyselfToVehicle,UserDeviceAssocn,SelfManage" })
     public ResponseEntity<Object> getAssociationDetails(@PathVariable("associationID") long associationId,
                                                    HttpServletRequest httpServletRequest) {
@@ -336,7 +336,7 @@ public class DeviceAssociationRestService {
     @Operation(summary = "GET /v1/users/association/details", responses = {
         @io.swagger.v3.oas.annotations.responses.ApiResponse(description = "Success", responseCode = "200",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))})
-    @SecurityRequirement(name = Security.Fields.JWT_AUTH_VALIDATOR,
+    @SecurityRequirement(name = "JwtAuthValidator",
             scopes = { "AssociateMyselfToVehicle,UserDeviceAssocn,SelfManage" })
     public ResponseEntity<Object> getAssociationDetails(HttpServletRequest httpServletRequest,
            @RequestParam(value = "imei", required = false, defaultValue = "") String imeiParam,
@@ -449,7 +449,7 @@ public class DeviceAssociationRestService {
     @Operation(summary = "GET v1/devices/{serialNumber}/associated", responses = {
         @io.swagger.v3.oas.annotations.responses.ApiResponse(description = "Success", responseCode = "200",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))})
-    @SecurityRequirement(name = Security.Fields.JWT_AUTH_VALIDATOR,
+    @SecurityRequirement(name = "JwtAuthValidator",
             scopes = { "AssociateMyselfToVehicle,UserDeviceAssocn,SelfManage" })
     public ResponseEntity<Object> isDeviceAlreadyAssociated(@PathVariable("serialNumber") String serialNumber,
                                                        HttpServletRequest httpServletRequest) {
@@ -520,7 +520,7 @@ public class DeviceAssociationRestService {
     @Operation(summary = "POST v1/user/associations/restore", responses = {
         @io.swagger.v3.oas.annotations.responses.ApiResponse(description = "Success", responseCode = "200",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))})
-    @SecurityRequirement(name = Security.Fields.JWT_AUTH_VALIDATOR,
+    @SecurityRequirement(name = "JwtAuthValidator",
             scopes = { "AssociateMyselfToVehicle,UserDeviceAssocn,SelfManage" })
     public ResponseEntity<SimpleResponseMessage> restoreAssociation(@Valid @RequestBody DeviceStatusRequest request,
                                                 @RequestHeader(USER_ID) String userId) {
@@ -561,7 +561,7 @@ public class DeviceAssociationRestService {
     @Operation(summary = "POST v1/user/associations/terminate", responses = {
         @io.swagger.v3.oas.annotations.responses.ApiResponse(description = "Success", responseCode = "200",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))})
-    @SecurityRequirement(name = Security.Fields.JWT_AUTH_VALIDATOR,
+    @SecurityRequirement(name = "JwtAuthValidator",
             scopes = { "AssociateMyselfToVehicle,UserDeviceAssocn,SelfManage,IgniteSystem" })
     public ResponseEntity<SimpleResponseMessage> terminateAssociation(@Valid @RequestBody DeviceStatusRequest request,
                                                   @RequestHeader(USER_ID) String userId) {
@@ -620,7 +620,7 @@ public class DeviceAssociationRestService {
     @Operation(summary = "POST /v1/user/associations/suspend", responses = {
         @io.swagger.v3.oas.annotations.responses.ApiResponse(description = "Success", responseCode = "200",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))})
-    @SecurityRequirement(name = Security.Fields.JWT_AUTH_VALIDATOR,
+    @SecurityRequirement(name = "JwtAuthValidator",
             scopes = { "AssociateMyselfToVehicle,UserDeviceAssocn,SelfManage" })
     public ResponseEntity<SimpleResponseMessage> suspendDevice(@Valid @RequestBody DeviceStatusRequest request,
                                            @RequestHeader(USER_ID) String userId) {
@@ -666,7 +666,7 @@ public class DeviceAssociationRestService {
     @Operation(summary = "POST /v1/user/device/replace", responses = {
         @io.swagger.v3.oas.annotations.responses.ApiResponse(description = "Success", responseCode = "200",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))})
-    @SecurityRequirement(name = Security.Fields.JWT_AUTH_VALIDATOR,
+    @SecurityRequirement(name = "JwtAuthValidator",
             scopes = { "AssociateMyselfToVehicle,UserDeviceAssocn,SelfManage,IgniteSystem" })
     public ResponseEntity<SimpleResponseMessage> replaceDevice(
                                            @Valid @RequestBody ReplaceFactoryDataRequest replaceDeviceRequest,
@@ -714,7 +714,7 @@ public class DeviceAssociationRestService {
     @Operation(summary = "PUT /v1/user/device/state", responses = {
         @io.swagger.v3.oas.annotations.responses.ApiResponse(description = "Success", responseCode = "200",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))})
-    @SecurityRequirement(name = Security.Fields.JWT_AUTH_VALIDATOR,
+    @SecurityRequirement(name = "JwtAuthValidator",
             scopes = { "AssociateMyselfToVehicle,UserDeviceAssocn,SelfManage" })
     public ResponseEntity<SimpleResponseMessage> changeState(@Valid @RequestBody StateChangeRequest stateChangeRequest,
                                          @RequestHeader(USER_ID) String userId) {
@@ -776,7 +776,7 @@ public class DeviceAssociationRestService {
     @Operation(summary = "GET v1/devices/{imei}/association/history", responses = {
         @io.swagger.v3.oas.annotations.responses.ApiResponse(description = "Success", responseCode = "200",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))})
-    @SecurityRequirement(name = Security.Fields.JWT_AUTH_VALIDATOR, scopes = { "IgniteSystem,userOrThirdPartyToken" })
+    @SecurityRequirement(name = "JwtAuthValidator", scopes = { "IgniteSystem,userOrThirdPartyToken" })
     public ResponseEntity<Object> getAssociationHistory(@PathVariable("imei") String imei,
                                @RequestParam(value = "page", required = false, defaultValue = "1") String page,
                                @RequestParam(value = "size", required = false, defaultValue = "20") String size,
