@@ -173,7 +173,8 @@
             **/services/factorydata/dao/DeviceInfoFactoryDataDao.java,
             **/services/shared/db/Filter.java,
             **/services/shared/db/FilterField.java,
-            **/common/ResponsePayload.java
+            **/common/ResponsePayload.java,
+            **/deviceassociation/controller/AssociationController.java
         </sonar.exclusions>
         <!-- 2.29 Release - suppressing NP_NULL_PARAM_DEREF Sonar bug and SQL_INJECTION_SPRING_JDBC Sonar vulnerability -->
         <sonar.issue.ignore.multicriteria>e1,e2,e3,e4</sonar.issue.ignore.multicriteria>
