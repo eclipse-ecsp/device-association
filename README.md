@@ -52,7 +52,9 @@ The list of tools required to build and run the project:
 
 Checkstyle plugin [maven-checkstyle-plugin:3.2.1](https://maven.apache.org/plugins/maven-checkstyle-plugin/) is integrated in [pom.xml](./pom.xml) which runs in the validate phase and check goal of the maven lifecycle and fails the build if there are any checkstyle errors in the project.
 
-To run checkstyle plugin explicitly, run the following command: mvn checkstyle:check
+To run checkstyle plugin explicitly, run the following command:
+
+```mvn checkstyle:check```
 
 ### Running the tests
 
@@ -70,12 +72,13 @@ To run a method from within a test
 
 ### Deployment
 
-The component can be deployed as a Kubernetes pod by installing Device factory management charts.
+1. The component can be deployed as a Kubernetes pod by installing Device Association charts.
 Link: [Charts](../../../ecsp-helm-charts/tree/main/association)
 
-Postgres DB needs to be installed and ignite database/schema should be created with the required tables.
+2. Postgres DB needs to be installed and ignite database/schema should be created with the required tables.
 Link of the database and table scripts to be installed: [dmpostgres.sql](https://github.com/eclipse-ecsp/ecsp-helm-charts/blob/main/postgresql/db-scripts/dmpostgres.sql)
-Detailed information about the request and response can be found in API docs [Device Association APIs](https://eclipse-ecsp.github.io/ecsp-website/api-def/api-static-swagger.html#tag/association-controller).
+
+3. Detailed information about the request and response can be found in API docs [Device Association APIs](https://eclipse-ecsp.github.io/ecsp-website/api-def/api-static-swagger.html#tag/association-controller).
 
 ## Architecture
 
