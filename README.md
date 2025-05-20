@@ -40,19 +40,9 @@ The list of tools required to build and run the project:
 * Java 17
 * Maven 3.8 or higher
 
-Download and Install Apache Maven 3.8 locally and follow the below steps:
-* Go to the right corner of the IDE and get inside the Maven option.
-* Select the Maven Settings option and set the Maven Home Path to the path of the Apache Maven 3.8 installed locally.
-* Click Apply and then OK.
-
-2. Postgres DB needs to be installed and database/schema should be created with the required tables.
-
-* Link of the database and table scripts to be installed :
-  [dmpostgres.sql](../../../ecsp-helm-charts/blob/main/postgresql/db-scripts/dmpostgres.sql)
-
 ### Installation
 
-[Install Java](https://www.azul.com/downloads/?version=java-17-lts&package=jdk#zulu)
+[Install Java 17](https://www.azul.com/downloads/?version=java-17-lts&package=jdk#zulu)
 
 [How to set up Maven](https://maven.apache.org/install.html)
 
